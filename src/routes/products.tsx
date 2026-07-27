@@ -19,15 +19,15 @@ import paperCupPrinted from "@/assets/4.png.asset.json";
 import paperCupSonic from "@/assets/2.png.asset.json";
 
 // Newly attached posters
-import posterPaakkuPlate from "@/assets/paakku-plate-v2.png.asset.json";
-import posterPaakkuCup from "@/assets/paakku-cup-v2.png.asset.json";
-import posterPaperPlate from "@/assets/paper-plate-v2.png.asset.json";
-import posterPaperCup from "@/assets/paper-cup-v2.png.asset.json";
-import posterYellowTea from "@/assets/yellow-tea-v2.png.asset.json";
-import posterFoodContainer from "@/assets/food-container-v2.jpg.asset.json";
-import posterDiningRoll from "@/assets/dining-roll-v2.png.asset.json";
-import posterSnacksContainer from "@/assets/snacks-container-v2.jpg.asset.json";
-import posterCirclePlate from "@/assets/circle-plate-v2.png.asset.json";
+import posterPaakkuPlate from "@/assets/paakku-plate-v3.webp.asset.json";
+import posterPaakkuCup from "@/assets/paakku-cup-v3.webp.asset.json";
+import posterPaperPlate from "@/assets/paper-plate-v3.webp.asset.json";
+import posterPaperCup from "@/assets/paper-cup-v3.webp.asset.json";
+import posterYellowTea from "@/assets/yellow-tea-v3.webp.asset.json";
+import posterFoodContainer from "@/assets/food-container-v3.webp.asset.json";
+import posterDiningRoll from "@/assets/dining-roll-v3.webp.asset.json";
+import posterSnacksContainer from "@/assets/snacks-container-v3.jpg.asset.json";
+import posterCirclePlate from "@/assets/circle-plate-v3.webp.asset.json";
 
 export const Route = createFileRoute("/products")({
   head: () => ({
