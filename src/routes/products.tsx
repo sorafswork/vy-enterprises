@@ -18,6 +18,17 @@ import diningRoll from "@/assets/5.png.asset.json";
 import paperCupPrinted from "@/assets/4.png.asset.json";
 import paperCupSonic from "@/assets/2.png.asset.json";
 
+// Newly attached posters
+import posterPaakkuPlate from "@/assets/p-paakku-tray.png.asset.json";
+import posterPaakkuCup from "@/assets/p-paakku-cups.png.asset.json";
+import posterPaperPlate from "@/assets/p-paper-plates.png.asset.json";
+import posterPaperCup from "@/assets/p-paper-cup.png.asset.json";
+import posterYellowTea from "@/assets/p-yellow-tea.png.asset.json";
+import posterFoodContainer from "@/assets/p-food-container.jpg.asset.json";
+import posterDiningRoll from "@/assets/p-dining-roll.png.asset.json";
+import posterSnacksContainer from "@/assets/p-snacks-container.jpg.asset.json";
+import posterCirclePlate from "@/assets/p-circle-plate.png.asset.json";
+
 export const Route = createFileRoute("/products")({
   head: () => ({
     meta: [
