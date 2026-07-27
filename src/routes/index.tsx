@@ -8,6 +8,7 @@ import {
   ShieldCheck, Boxes, PaintBucket, BadgeCheck, Clock, Users,
 } from "lucide-react";
 import logo from "@/assets/vy-logo.jpg";
+import awardImg from "@/assets/award.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -236,6 +237,71 @@ function Hero() {
         </div>
       </Section>
     </div>
+  );
+}
+
+/* ---------- Award Showcase ---------- */
+
+function AwardShowcase() {
+  return (
+    <section className="relative overflow-hidden py-20 md:py-28">
+      <div className="mx-auto grid w-full max-w-7xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-[1fr_1.1fr]">
+        <Reveal>
+          <motion.div
+            className="relative mx-auto w-full max-w-md"
+            animate={{ y: [0, -14, 0] }}
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <div className="absolute -inset-4 rounded-3xl bg-primary/20 blur-2xl" />
+            <motion.img
+              src={awardImg.url}
+              alt="VY Enterprises receiving award at KIPL Hello Confexa for excellence in eco-friendly manufacturing"
+              className="relative z-10 w-full rounded-3xl object-cover shadow-elegant ring-1 ring-primary/20"
+              initial={{ opacity: 0, scale: 0.92 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            />
+            <motion.div
+              className="absolute -right-3 -top-3 z-20 rounded-full gradient-forest px-4 py-2 text-xs font-semibold text-primary-foreground shadow-elegant"
+              animate={{ rotate: [0, -6, 6, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <span className="inline-flex items-center gap-1"><Award className="h-3.5 w-3.5" /> Award Winner</span>
+            </motion.div>
+          </motion.div>
+        </Reveal>
+
+        <div className="overflow-hidden">
+          <Reveal>
+            <span className="inline-flex items-center gap-2 rounded-full glass px-3.5 py-1.5 text-xs font-medium text-foreground/80">
+              <BadgeCheck className="h-3.5 w-3.5 text-primary" /> KIPL Hello Confexa Honoree
+            </span>
+          </Reveal>
+
+          <div className="mt-5 whitespace-nowrap">
+            <motion.div
+              className="flex gap-8 text-5xl font-semibold text-gradient-forest sm:text-6xl md:text-7xl"
+              animate={{ x: ["0%", "-50%"] }}
+              transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
+            >
+              {Array.from({ length: 6 }).map((_, i) => (
+                <span key={i} className="flex items-center gap-8">
+                  VY ENTERPRISES
+                  <Leaf className="h-8 w-8 shrink-0 text-primary" />
+                </span>
+              ))}
+            </motion.div>
+          </div>
+
+          <Reveal delay={0.1}>
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
+              Recognised for excellence in eco-friendly manufacturing — a proud milestone in our journey to make sustainable disposables the new standard.
+            </p>
+          </Reveal>
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -898,6 +964,7 @@ function Landing() {
       <Nav />
       <main>
         <Hero />
+        <AwardShowcase />
         <About />
         <Stats />
         <Awards />
