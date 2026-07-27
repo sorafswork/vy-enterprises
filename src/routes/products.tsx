@@ -565,12 +565,36 @@ function ProductCard({ product, index, onView }: { product: Product; index: numb
       className="glass group relative overflow-hidden rounded-3xl border border-border shadow-elegant"
     >
       <div className="relative aspect-[4/3] overflow-hidden bg-[color:var(--beige)]">
-        <img
-          src={product.image}
-          alt={product.title}
-          loading="lazy"
-          className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-        />
+        {product.poster ? (
+          <motion.img
+            src={product.image}
+            alt={product.title}
+            loading="lazy"
+            className="h-full w-full object-cover"
+            initial={{ scale: 1.08 }}
+            animate={{ y: [0, -14, 0, 14, 0], scale: [1.08, 1.12, 1.08] }}
+            transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+          />
+        ) : (
+          <img
+            src={product.image}
+            alt={product.title}
+            loading="lazy"
+            className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+          />
+        )}
+        {product.poster && (
+          <motion.div
+            aria-hidden
+            className="pointer-events-none absolute inset-0"
+            initial={{ x: "-120%" }}
+            animate={{ x: ["-120%", "120%"] }}
+            transition={{ duration: 3.6, repeat: Infinity, ease: "easeInOut", repeatDelay: 1.2 }}
+            style={{
+              background: "linear-gradient(115deg, transparent 35%, rgba(255,255,255,0.35) 50%, transparent 65%)",
+            }}
+          />
+        )}
         {product.tag && (
           <span className="absolute left-3 top-3 rounded-full bg-white/85 px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-[color:var(--forest)] backdrop-blur">
             {product.tag}
