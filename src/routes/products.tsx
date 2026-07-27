@@ -56,7 +56,9 @@ type Category =
   | "Food Containers"
   | "Table Service"
   | "Dining Rolls"
-  | "Tiffin Boxes";
+  | "Tiffin Boxes"
+  | "Paakku Snacks Container"
+  | "Paakku Circle Plates";
 
 type Product = {
   id: string;
@@ -65,26 +67,45 @@ type Product = {
   category: Category;
   image: string;
   tag?: string;
+  poster?: boolean;
 };
 
 const products: Product[] = [
+  { id: "poster-paakku-plate", title: "Paakku (Areca) Compartment Plate", desc: "Featured poster — natural areca palm-leaf 3-compartment plate.", category: "Paakku Plates", image: posterPaakkuPlate.url, tag: "New Arrival", poster: true },
   { id: "paakku-round-plate", title: "Paakku Round Plate", desc: "Natural areca palm-leaf round plate — sturdy, food-safe, biodegradable.", category: "Paakku Plates", image: paakkuPlate.url, tag: "Best Seller" },
   { id: "paakku-compartment-tray", title: "Paakku 4-Compartment Tray", desc: "Meal tray with four sections — perfect for thali & catering.", category: "Paakku Plates", image: paakkuTray.url, tag: "Catering" },
+
+  { id: "poster-paakku-cup", title: "Paakku Areca Cups & Bowls", desc: "Featured poster — round areca palm-leaf cups and bowls.", category: "Paakku Cups", image: posterPaakkuCup.url, tag: "New Arrival", poster: true },
   { id: "paakku-bowl-set", title: "Paakku Bowl Set", desc: "Round areca bowls for curries, desserts and starters.", category: "Paakku Cups", image: paakkuBowl.url },
-  { id: "paakku-container-a", title: "Paakku Food Container — Meal Box", desc: "Leak & heat resistant areca meal container with lid.", category: "Food Containers", image: paakkuPack.url, tag: "Hot & Cold" },
-  { id: "paakku-container-b", title: "Paakku Assorted Pack — Plates & Bowls", desc: "Retail-ready assorted pack of areca plates, bowls & trays.", category: "Food Containers", image: paakkuPackB.url, tag: "Retail Pack" },
+
+  { id: "poster-paper-plate", title: "Silver Paper Plates — Full Range", desc: "Featured poster — silver paper plates in sizes 6 to 12.", category: "Paper Plates", image: posterPaperPlate.url, tag: "New Arrival", poster: true },
   { id: "silver-paper-plates", title: "Silver Paper Plates — Sizes 6 to 12", desc: "Premium silver-coated paper plates in five sizes.", category: "Paper Plates", image: silverPlates.url, tag: "Multi-size" },
+
+  { id: "poster-paper-cup", title: "Printed Paper Cup — Floral", desc: "Featured poster — soya-ink printed floral paper cup.", category: "Paper Cups", image: posterPaperCup.url, tag: "New Arrival", poster: true },
   { id: "paper-cup-printed", title: "Printed Paper Cup — Soya Ink", desc: "Elegant floral print paper cup printed with soya-based ink.", category: "Paper Cups", image: paperCupPrinted.url },
   { id: "paper-cup-character", title: "Character Print Paper Cup", desc: "Fun character-printed paper cup for parties & events.", category: "Paper Cups", image: paperCupSonic.url },
+
+  { id: "poster-yellow-tea", title: "Yellow Tea Cup — Coffee Print", desc: "Featured poster — food-grade paper cup with coffee print.", category: "Yellow Tea Cups", image: posterYellowTea.url, tag: "New Arrival", poster: true },
   { id: "yellow-tea-cup", title: "Yellow Tea Cup — Plain", desc: "Warm yellow-tinted paper tea cup, food-grade and compostable.", category: "Yellow Tea Cups", image: paperCupPrinted.url },
+
+  { id: "poster-food-container", title: "Paakku Food Container — Meal Ready", desc: "Featured poster — natural areca palm-leaf food container.", category: "Food Containers", image: posterFoodContainer.url, tag: "New Arrival", poster: true },
+  { id: "paakku-container-a", title: "Paakku Food Container — Meal Box", desc: "Leak & heat resistant areca meal container with lid.", category: "Food Containers", image: paakkuPack.url, tag: "Hot & Cold" },
+  { id: "paakku-container-b", title: "Paakku Assorted Pack — Plates & Bowls", desc: "Retail-ready assorted pack of areca plates, bowls & trays.", category: "Food Containers", image: paakkuPackB.url, tag: "Retail Pack" },
+
+  { id: "poster-dining-roll", title: "Dining Roll — Kraft Poster", desc: "Featured poster — multi-layer kraft dining roll.", category: "Dining Rolls", image: posterDiningRoll.url, tag: "New Arrival", poster: true },
   { id: "dining-roll", title: "Dining Roll — Kraft Paper", desc: "Multi-layer kraft dining roll for hygienic table service.", category: "Dining Rolls", image: diningRoll.url },
+
   { id: "table-service-kit", title: "Clean & Practical Table Service Kit", desc: "Curated table service kit for restaurants and events.", category: "Table Service", image: paakkuPackB.url },
   { id: "tiffin-box", title: "Areca Tiffin Box Container", desc: "Compartment tiffin box crafted from areca palm-leaf.", category: "Tiffin Boxes", image: paakkuTray.url },
+
+  { id: "paakku-snacks-container", title: "Paakku Snacks Container", desc: "Areca palm-leaf snacks container — retail pack with premium branding, ideal for takeaway snacks & catering.", category: "Paakku Snacks Container", image: posterSnacksContainer.url, tag: "New Arrival", poster: true },
+  { id: "paakku-circle-plates", title: "Paakku Circle Plates", desc: "Round bamboo/areca circle plate with 3 compartments — elegant and 100% natural.", category: "Paakku Circle Plates", image: posterCirclePlate.url, tag: "New Arrival", poster: true },
 ];
 
 const categories: Category[] = [
   "Paakku Plates", "Paakku Cups", "Paper Plates", "Paper Cups",
   "Yellow Tea Cups", "Food Containers", "Table Service", "Dining Rolls", "Tiffin Boxes",
+  "Paakku Snacks Container", "Paakku Circle Plates",
 ];
 
 const categoryIcons: Record<Category, React.ComponentType<{ className?: string }>> = {
@@ -97,6 +118,8 @@ const categoryIcons: Record<Category, React.ComponentType<{ className?: string }
   "Table Service": ChefHat,
   "Dining Rolls": Recycle,
   "Tiffin Boxes": Boxes,
+  "Paakku Snacks Container": Package,
+  "Paakku Circle Plates": Leaf,
 };
 
 /* ---------- Helpers ---------- */
