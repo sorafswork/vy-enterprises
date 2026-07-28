@@ -9,14 +9,119 @@ import {
 } from "lucide-react";
 import logo from "@/assets/vy-logo.jpg";
 import awardImg from "@/assets/award.jpg.asset.json";
-import crestLogo from "@/assets/vy-logo-crest.png.asset.json";
-import imgArecaPlate from "@/assets/paakku-plate-v3.webp.asset.json";
-import imgArecaCup from "@/assets/paakku-cup-v3.webp.asset.json";
-import imgPaperPlate from "@/assets/paper-plate-v3.webp.asset.json";
-import imgPaperCup from "@/assets/paper-cup-v3.webp.asset.json";
-import imgYellowTea from "@/assets/yellow-tea-v3.webp.asset.json";
-import imgContainer from "@/assets/food-container-v3.webp.asset.json";
-import imgDiningRoll from "@/assets/dining-roll-v3.webp.asset.json";
+import slideArecaPlates from "@/assets/slide-areca-plates.png.asset.json";
+import slideArecaPlats from "@/assets/slide-areca-plats.webp.asset.json";
+import slideArecaCups from "@/assets/slide-areca-cups.webp.asset.json";
+import slidePapperPlats from "@/assets/slide-papper-plats.webp.asset.json";
+import slideSquarePlates from "@/assets/slide-square-plates.webp.asset.json";
+import slideTeaCup from "@/assets/slide-tea-cup.webp.asset.json";
+import slideWaterCup from "@/assets/slide-water-cup.webp.asset.json";
+import slideDinningRoll from "@/assets/slide-dinning-roll.webp.asset.json";
+import slideVyPack1 from "@/assets/slide-vy-pack-1.jpg.asset.json";
+import slideVybPack from "@/assets/slide-vyb-pack.jpg.asset.json";
+
+const HERO_SLIDES = [
+  { src: slideArecaPlates.url, label: "Paakku Areca Plates" },
+  { src: slideArecaCups.url, label: "Paakku Areca Cups" },
+  { src: slidePapperPlats.url, label: "Silver Paper Plates" },
+  { src: slideWaterCup.url, label: "Printed Paper Cups" },
+  { src: slideTeaCup.url, label: "Tea & Snack Cups" },
+  { src: slideVyPack1.url, label: "Paakku Food Containers" },
+  { src: slideDinningRoll.url, label: "Dining Rolls" },
+  { src: slideVybPack.url, label: "Paakku Retail Pack" },
+  { src: slideSquarePlates.url, label: "Paakku Compartment Trays" },
+  { src: slideArecaPlats.url, label: "Paakku Circle Plates" },
+];
+
+function HeroSlider() {
+  const [i, setI] = useState(0);
+  const n = HERO_SLIDES.length;
+  useEffect(() => {
+    const id = setInterval(() => setI((v) => (v + 1) % n), 3000);
+    return () => clearInterval(id);
+  }, [n]);
+  const prev = (i - 1 + n) % n;
+  const next = (i + 1) % n;
+  return (
+    <div className="relative mx-auto flex h-[420px] w-full max-w-[560px] items-center justify-center sm:h-[480px]">
+      <motion.div
+        className="absolute inset-0 rounded-full"
+        style={{ background: "radial-gradient(circle at 50% 50%, color-mix(in oklab, var(--leaf) 55%, transparent), transparent 65%)" }}
+        animate={{ scale: [1, 1.05, 1] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <div className="absolute inset-6 rounded-full border border-primary/15 animate-spin-slow" />
+      <div className="absolute inset-16 rounded-full border border-dashed border-primary/20" />
+
+      <div className="relative z-10 flex h-full w-full items-center justify-center overflow-hidden">
+        {HERO_SLIDES.map((s, idx) => {
+          const isActive = idx === i;
+          const isPrev = idx === prev;
+          const isNext = idx === next;
+          if (!isActive && !isPrev && !isNext) {
+            return (
+              <motion.img
+                key={idx}
+                src={s.src}
+                alt={s.label}
+                aria-hidden="true"
+                className="absolute h-40 w-40 rounded-3xl object-cover opacity-0"
+              />
+            );
+          }
+          const x = isActive ? "0%" : isPrev ? "-70%" : "70%";
+          const scale = isActive ? 1 : 0.7;
+          const opacity = isActive ? 1 : 0.35;
+          const zIndex = isActive ? 20 : 10;
+          return (
+            <motion.img
+              key={idx}
+              src={s.src}
+              alt={s.label}
+              className="absolute rounded-3xl object-cover shadow-elegant ring-1 ring-primary/20"
+              style={{ zIndex }}
+              initial={false}
+              animate={{
+                x,
+                scale,
+                opacity,
+                width: isActive ? 300 : 200,
+                height: isActive ? 300 : 200,
+              }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            />
+          );
+        })}
+      </div>
+
+      {isActiveBadge(HERO_SLIDES[i].label)}
+
+      <div className="absolute bottom-2 left-1/2 z-30 flex -translate-x-1/2 gap-2">
+        {HERO_SLIDES.map((_, idx) => (
+          <button
+            key={idx}
+            onClick={() => setI(idx)}
+            aria-label={`Show slide ${idx + 1}`}
+            className={`h-2 rounded-full transition-all ${idx === i ? "w-6 bg-primary" : "w-2 bg-primary/30 hover:bg-primary/60"}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function isActiveBadge(label: string) {
+  return (
+    <motion.div
+      key={label}
+      initial={{ opacity: 0, y: 8 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="absolute bottom-14 left-1/2 z-30 -translate-x-1/2 whitespace-nowrap rounded-full glass px-4 py-1.5 text-xs font-medium shadow-elegant"
+    >
+      <span className="text-primary">✦</span> {label}
+    </motion.div>
+  );
+}
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -207,41 +312,8 @@ function Hero() {
             </Reveal>
           </div>
 
-          {/* Right: badge showcase */}
-          <div className="relative mx-auto flex h-[480px] w-full max-w-[520px] items-center justify-center">
-            <motion.div
-              className="absolute inset-0 rounded-full"
-              style={{ background: "radial-gradient(circle at 50% 50%, color-mix(in oklab, var(--leaf) 55%, transparent), transparent 65%)" }}
-              animate={{ scale: [1, 1.05, 1] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            />
-            <div className="absolute inset-6 rounded-full border border-primary/15 animate-spin-slow" />
-            <div className="absolute inset-16 rounded-full border border-dashed border-primary/20" />
-
-            <motion.img
-              src={logo}
-              alt="VY Enterprises logo"
-              className="relative z-10 h-[280px] w-[280px] rounded-full object-cover shadow-elegant ring-1 ring-primary/20"
-              initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            />
-
-            {/* Floating product chips */}
-            {[
-              { label: "Areca Plates", icon: <UtensilsCrossed className="h-4 w-4" />, x: "-8%", y: "8%", d: 0 },
-              { label: "Paper Cups", icon: <Coffee className="h-4 w-4" />, x: "88%", y: "18%", d: 0.4 },
-              { label: "Food Containers", icon: <Package className="h-4 w-4" />, x: "-4%", y: "78%", d: 0.8 },
-              { label: "Dining Rolls", icon: <Boxes className="h-4 w-4" />, x: "86%", y: "76%", d: 1.2 },
-            ].map((p) => (
-              <motion.div
-                key={p.label}
-                className="absolute z-20 flex items-center gap-2 rounded-full glass px-3 py-2 text-xs font-medium shadow-elegant"
-                style={{ left: p.x, top: p.y }}
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: p.d }}
-              >
-                <span className="text-primary">{p.icon}</span> {p.label}
-              </motion.div>
-            ))}
-          </div>
+          {/* Right: product slider */}
+          <HeroSlider />
         </div>
       </Section>
     </div>
@@ -422,73 +494,16 @@ function Awards() {
   );
 }
 
-/* ---------- Logo Intro ---------- */
-
-function LogoIntro() {
-  return (
-    <Section id="about-brand" className="!py-20">
-      <div className="grid items-center gap-12 md:grid-cols-2">
-        <Reveal>
-          <div>
-            <span className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Our Brand</span>
-            <h2 className="mt-3 text-4xl font-semibold md:text-5xl">
-              Crafting a <span className="text-gradient-forest">greener legacy</span>
-            </h2>
-            <motion.p
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.4 }}
-              transition={{ duration: 0.7, ease: "easeOut" }}
-              className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg"
-            >
-              VY Enterprises is a trusted manufacturer and supplier of premium eco-friendly disposable products.
-              We offer high-quality Areca plates, paper plates, paper cups, food containers, dining rolls, and
-              customized packaging solutions with a commitment to quality and sustainability.
-            </motion.p>
-          </div>
-        </Reveal>
-
-        <Reveal delay={0.1}>
-          <div className="relative flex items-center justify-center md:justify-end">
-            <div className="absolute h-72 w-72 rounded-full bg-gold/20 blur-3xl md:h-96 md:w-96" />
-            <motion.div
-              animate={{ y: [0, -14, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              className="relative"
-            >
-              <motion.div
-                animate={{ rotate: [0, 1.5, 0, -1.5, 0] }}
-                transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-                className="relative rounded-[2rem] p-2 shadow-elegant"
-                style={{ background: "linear-gradient(135deg, hsl(var(--gold) / 0.6), hsl(var(--primary) / 0.3))" }}
-              >
-                <img
-                  src={crestLogo.url}
-                  alt="VY Enterprises logo"
-                  loading="lazy"
-                  className="h-64 w-64 rounded-[1.75rem] object-contain md:h-80 md:w-80"
-                />
-              </motion.div>
-            </motion.div>
-          </div>
-        </Reveal>
-      </div>
-    </Section>
-  );
-}
-
 /* ---------- Products ---------- */
 
-
-
 const productCatalog = [
-  { id: "areca-plates", name: "Paakku (Areca) Plates", img: imgArecaPlate.url, sizes: ["12\"", "10\"", "8\"", "5.5\"", "3\""], desc: "Naturally fallen areca leaf, hot-pressed. Sturdy, elegant, 100% compostable.", icon: UtensilsCrossed },
-  { id: "areca-cups", name: "Paakku Cups", img: imgArecaCup.url, sizes: ["Standard"], desc: "Natural biodegradable cups for a refined table setting.", icon: Coffee },
-  { id: "paper-plates", name: "Paper Plates", img: imgPaperPlate.url, sizes: ["12\"", "10\"", "9\"", "8\"", "7\"", "6\"", "180 GSM"], desc: "Food-safe, heavy-duty 180 GSM paper plates for every occasion.", icon: UtensilsCrossed },
-  { id: "paper-cups", name: "Paper Cups", img: imgPaperCup.url, sizes: ["90 ml", "110 ml", "150 ml", "210 ml", "250 ml"], desc: "Leak-proof paper cups for tea, coffee and cold beverages.", icon: Coffee },
-  { id: "yellow-tea", name: "Yellow Tea Cups", img: imgYellowTea.url, sizes: ["90 ml"], desc: "Classic yellow tea cups for tea shops and caterers.", icon: Coffee },
-  { id: "containers", name: "Paakku Food Containers", img: imgContainer.url, sizes: ["Takeaway"], desc: "Eco-friendly takeaway containers made from areca leaf.", icon: Package },
-  { id: "dining-rolls", name: "Dining Rolls", img: imgDiningRoll.url, sizes: ["Sold by KG"], desc: "Food-grade dining rolls available by the kilogram for bulk needs.", icon: Boxes },
+  { id: "areca-plates", name: "Paakku (Areca) Plates", sizes: ["12\"", "10\"", "8\"", "5.5\"", "3\""], desc: "Naturally fallen areca leaf, hot-pressed. Sturdy, elegant, 100% compostable.", icon: UtensilsCrossed },
+  { id: "areca-cups", name: "Paakku Cups", sizes: ["Standard"], desc: "Natural biodegradable cups for a refined table setting.", icon: Coffee },
+  { id: "paper-plates", name: "Paper Plates", sizes: ["12\"", "10\"", "9\"", "8\"", "7\"", "6\"", "180 GSM"], desc: "Food-safe, heavy-duty 180 GSM paper plates for every occasion.", icon: UtensilsCrossed },
+  { id: "paper-cups", name: "Paper Cups", sizes: ["90 ml", "110 ml", "150 ml", "210 ml", "250 ml"], desc: "Leak-proof paper cups for tea, coffee and cold beverages.", icon: Coffee },
+  { id: "yellow-tea", name: "Yellow Tea Cups", sizes: ["90 ml"], desc: "Classic yellow tea cups for tea shops and caterers.", icon: Coffee },
+  { id: "containers", name: "Paakku Food Containers", sizes: ["Takeaway"], desc: "Eco-friendly takeaway containers made from areca leaf.", icon: Package },
+  { id: "dining-rolls", name: "Dining Rolls", sizes: ["Sold by KG"], desc: "Food-grade dining rolls available by the kilogram for bulk needs.", icon: Boxes },
 ];
 
 function Products() {
@@ -511,57 +526,47 @@ function Products() {
             <Reveal key={p.id} delay={(i % 3) * 0.06}>
               <motion.article
                 layout
-                whileHover={{ y: -8 }}
-                transition={{ type: "spring", stiffness: 260, damping: 22 }}
-                className="group relative flex h-full flex-col overflow-hidden rounded-3xl glass shadow-elegant"
+                whileHover={{ y: -6 }}
+                className="group relative overflow-hidden rounded-3xl glass p-6 shadow-elegant"
               >
-                <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-primary/5 to-secondary/10">
-                  <motion.img
-                    src={p.img}
-                    alt={p.name}
-                    loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-110"
-                  />
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                  <span className="absolute left-4 top-4 inline-flex items-center gap-1 rounded-full bg-background/85 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-widest text-primary backdrop-blur">
+                <div className="flex items-start justify-between">
+                  <div className="grid h-12 w-12 place-items-center rounded-2xl gradient-forest text-primary-foreground shadow-elegant">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <span className="inline-flex items-center gap-1 rounded-full bg-primary/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-widest text-primary">
                     <Leaf className="h-3 w-3" /> Eco
                   </span>
-                  <div className="absolute right-4 top-4 grid h-10 w-10 place-items-center rounded-xl gradient-forest text-primary-foreground shadow-elegant">
-                    <Icon className="h-4 w-4" />
-                  </div>
                 </div>
-                <div className="flex flex-1 flex-col p-6">
-                  <h3 className="text-xl font-semibold">{p.name}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{p.desc}</p>
-                  <div className="mt-4 flex flex-wrap gap-1.5">
-                    {p.sizes.map((s) => (
-                      <span key={s} className="rounded-full border border-border bg-background/60 px-2.5 py-0.5 text-[11px] font-medium text-foreground/80">{s}</span>
-                    ))}
-                  </div>
+                <h3 className="mt-5 text-xl font-semibold">{p.name}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{p.desc}</p>
+                <div className="mt-4 flex flex-wrap gap-1.5">
+                  {p.sizes.map((s) => (
+                    <span key={s} className="rounded-full border border-border bg-background/60 px-2.5 py-0.5 text-[11px] font-medium text-foreground/80">{s}</span>
+                  ))}
+                </div>
 
-                  <motion.div
-                    initial={false}
-                    animate={{ height: open ? "auto" : 0, opacity: open ? 1 : 0 }}
-                    className="overflow-hidden"
+                <motion.div
+                  initial={false}
+                  animate={{ height: open ? "auto" : 0, opacity: open ? 1 : 0 }}
+                  className="overflow-hidden"
+                >
+                  <ul className="mt-4 space-y-1.5 text-sm text-muted-foreground">
+                    <li className="flex items-center gap-2"><Check className="h-4 w-4 text-primary" /> Food-safe & compostable</li>
+                    <li className="flex items-center gap-2"><Check className="h-4 w-4 text-primary" /> Bulk pricing available</li>
+                    <li className="flex items-center gap-2"><Check className="h-4 w-4 text-primary" /> Custom branding on request</li>
+                  </ul>
+                </motion.div>
+
+                <div className="mt-5 flex gap-2">
+                  <a href="#contact" className="inline-flex flex-1 items-center justify-center gap-2 rounded-full gradient-forest px-4 py-2 text-xs font-medium text-primary-foreground shadow-elegant">
+                    Inquiry <ArrowRight className="h-3.5 w-3.5" />
+                  </a>
+                  <button
+                    onClick={() => setActive(open ? null : p.id)}
+                    className="rounded-full border border-border bg-background/60 px-4 py-2 text-xs font-medium hover:bg-accent"
                   >
-                    <ul className="mt-4 space-y-1.5 text-sm text-muted-foreground">
-                      <li className="flex items-center gap-2"><Check className="h-4 w-4 text-primary" /> Food-safe & compostable</li>
-                      <li className="flex items-center gap-2"><Check className="h-4 w-4 text-primary" /> Bulk pricing available</li>
-                      <li className="flex items-center gap-2"><Check className="h-4 w-4 text-primary" /> Custom branding on request</li>
-                    </ul>
-                  </motion.div>
-
-                  <div className="mt-auto flex gap-2 pt-5">
-                    <a href="#contact" className="inline-flex flex-1 items-center justify-center gap-2 rounded-full gradient-forest px-4 py-2 text-xs font-medium text-primary-foreground shadow-elegant">
-                      Inquiry <ArrowRight className="h-3.5 w-3.5" />
-                    </a>
-                    <button
-                      onClick={() => setActive(open ? null : p.id)}
-                      className="rounded-full border border-border bg-background/60 px-4 py-2 text-xs font-medium hover:bg-accent"
-                    >
-                      {open ? "Hide" : "Details"}
-                    </button>
-                  </div>
+                    {open ? "Hide" : "Details"}
+                  </button>
                 </div>
               </motion.article>
             </Reveal>
@@ -740,7 +745,7 @@ function WhyUs() {
 /* ---------- Partners marquee ---------- */
 
 function Partners() {
-  const partners = ["Mangalan Mangal", "Pothys Food Stall", "Archana Structure", "FSM Company", "+ Your Business"];
+  const partners = ["Mangalan Mangal", "Pothys Food Stall", "Archana Sweet", "FSM Company", "+ Your Business"];
   const row = [...partners, ...partners];
   return (
     <Section id="partners" className="!py-16">
@@ -1043,7 +1048,6 @@ function Landing() {
         <About />
         <Stats />
         <Awards />
-        <LogoIntro />
         <Products />
         <Finder />
         <Sustainability />
