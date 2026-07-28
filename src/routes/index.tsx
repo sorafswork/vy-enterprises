@@ -425,13 +425,13 @@ function Awards() {
 /* ---------- Products ---------- */
 
 const productCatalog = [
-  { id: "areca-plates", name: "Paakku (Areca) Plates", sizes: ["12\"", "10\"", "8\"", "5.5\"", "3\""], desc: "Naturally fallen areca leaf, hot-pressed. Sturdy, elegant, 100% compostable.", icon: UtensilsCrossed },
-  { id: "areca-cups", name: "Paakku Cups", sizes: ["Standard"], desc: "Natural biodegradable cups for a refined table setting.", icon: Coffee },
-  { id: "paper-plates", name: "Paper Plates", sizes: ["12\"", "10\"", "9\"", "8\"", "7\"", "6\"", "180 GSM"], desc: "Food-safe, heavy-duty 180 GSM paper plates for every occasion.", icon: UtensilsCrossed },
-  { id: "paper-cups", name: "Paper Cups", sizes: ["90 ml", "110 ml", "150 ml", "210 ml", "250 ml"], desc: "Leak-proof paper cups for tea, coffee and cold beverages.", icon: Coffee },
-  { id: "yellow-tea", name: "Yellow Tea Cups", sizes: ["90 ml"], desc: "Classic yellow tea cups for tea shops and caterers.", icon: Coffee },
-  { id: "containers", name: "Paakku Food Containers", sizes: ["Takeaway"], desc: "Eco-friendly takeaway containers made from areca leaf.", icon: Package },
-  { id: "dining-rolls", name: "Dining Rolls", sizes: ["Sold by KG"], desc: "Food-grade dining rolls available by the kilogram for bulk needs.", icon: Boxes },
+  { id: "areca-plates", name: "Paakku (Areca) Plates", img: imgArecaPlate.url, sizes: ["12\"", "10\"", "8\"", "5.5\"", "3\""], desc: "Naturally fallen areca leaf, hot-pressed. Sturdy, elegant, 100% compostable.", icon: UtensilsCrossed },
+  { id: "areca-cups", name: "Paakku Cups", img: imgArecaCup.url, sizes: ["Standard"], desc: "Natural biodegradable cups for a refined table setting.", icon: Coffee },
+  { id: "paper-plates", name: "Paper Plates", img: imgPaperPlate.url, sizes: ["12\"", "10\"", "9\"", "8\"", "7\"", "6\"", "180 GSM"], desc: "Food-safe, heavy-duty 180 GSM paper plates for every occasion.", icon: UtensilsCrossed },
+  { id: "paper-cups", name: "Paper Cups", img: imgPaperCup.url, sizes: ["90 ml", "110 ml", "150 ml", "210 ml", "250 ml"], desc: "Leak-proof paper cups for tea, coffee and cold beverages.", icon: Coffee },
+  { id: "yellow-tea", name: "Yellow Tea Cups", img: imgYellowTea.url, sizes: ["90 ml"], desc: "Classic yellow tea cups for tea shops and caterers.", icon: Coffee },
+  { id: "containers", name: "Paakku Food Containers", img: imgContainer.url, sizes: ["Takeaway"], desc: "Eco-friendly takeaway containers made from areca leaf.", icon: Package },
+  { id: "dining-rolls", name: "Dining Rolls", img: imgDiningRoll.url, sizes: ["Sold by KG"], desc: "Food-grade dining rolls available by the kilogram for bulk needs.", icon: Boxes },
 ];
 
 function Products() {
