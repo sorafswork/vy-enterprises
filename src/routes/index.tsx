@@ -9,6 +9,14 @@ import {
 } from "lucide-react";
 import logo from "@/assets/vy-logo.jpg";
 import awardImg from "@/assets/award.jpg.asset.json";
+import crestLogo from "@/assets/vy-logo-crest.png.asset.json";
+import imgArecaPlate from "@/assets/paakku-plate-v3.webp.asset.json";
+import imgArecaCup from "@/assets/paakku-cup-v3.webp.asset.json";
+import imgPaperPlate from "@/assets/paper-plate-v3.webp.asset.json";
+import imgPaperCup from "@/assets/paper-cup-v3.webp.asset.json";
+import imgYellowTea from "@/assets/yellow-tea-v3.webp.asset.json";
+import imgContainer from "@/assets/food-container-v3.webp.asset.json";
+import imgDiningRoll from "@/assets/dining-roll-v3.webp.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
