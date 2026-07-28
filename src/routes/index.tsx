@@ -1043,6 +1043,7 @@ function Landing() {
         <About />
         <Stats />
         <Awards />
+        <LogoIntro />
         <Products />
         <Finder />
         <Sustainability />
