@@ -422,7 +422,64 @@ function Awards() {
   );
 }
 
+/* ---------- Logo Intro ---------- */
+
+function LogoIntro() {
+  return (
+    <Section id="about-brand" className="!py-20">
+      <div className="grid items-center gap-12 md:grid-cols-2">
+        <Reveal>
+          <div>
+            <span className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Our Brand</span>
+            <h2 className="mt-3 text-4xl font-semibold md:text-5xl">
+              Crafting a <span className="text-gradient-forest">greener legacy</span>
+            </h2>
+            <motion.p
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.4 }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+              className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg"
+            >
+              VY Enterprises is a trusted manufacturer and supplier of premium eco-friendly disposable products.
+              We offer high-quality Areca plates, paper plates, paper cups, food containers, dining rolls, and
+              customized packaging solutions with a commitment to quality and sustainability.
+            </motion.p>
+          </div>
+        </Reveal>
+
+        <Reveal delay={0.1}>
+          <div className="relative flex items-center justify-center md:justify-end">
+            <div className="absolute h-72 w-72 rounded-full bg-gold/20 blur-3xl md:h-96 md:w-96" />
+            <motion.div
+              animate={{ y: [0, -14, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+              className="relative"
+            >
+              <motion.div
+                animate={{ rotate: [0, 1.5, 0, -1.5, 0] }}
+                transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                className="relative rounded-[2rem] p-2 shadow-elegant"
+                style={{ background: "linear-gradient(135deg, hsl(var(--gold) / 0.6), hsl(var(--primary) / 0.3))" }}
+              >
+                <img
+                  src={crestLogo.url}
+                  alt="VY Enterprises logo"
+                  loading="lazy"
+                  className="h-64 w-64 rounded-[1.75rem] object-contain md:h-80 md:w-80"
+                />
+              </motion.div>
+            </motion.div>
+          </div>
+        </Reveal>
+      </div>
+    </Section>
+  );
+}
+
 /* ---------- Products ---------- */
+
+
 
 const productCatalog = [
   { id: "areca-plates", name: "Paakku (Areca) Plates", img: imgArecaPlate.url, sizes: ["12\"", "10\"", "8\"", "5.5\"", "3\""], desc: "Naturally fallen areca leaf, hot-pressed. Sturdy, elegant, 100% compostable.", icon: UtensilsCrossed },
