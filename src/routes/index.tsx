@@ -9,6 +9,14 @@ import {
 } from "lucide-react";
 import logo from "@/assets/vy-logo.jpg";
 import awardImg from "@/assets/award.jpg.asset.json";
+import crestLogo from "@/assets/vy-logo-crest.png.asset.json";
+import imgArecaPlate from "@/assets/paakku-plate-v3.webp.asset.json";
+import imgArecaCup from "@/assets/paakku-cup-v3.webp.asset.json";
+import imgPaperPlate from "@/assets/paper-plate-v3.webp.asset.json";
+import imgPaperCup from "@/assets/paper-cup-v3.webp.asset.json";
+import imgYellowTea from "@/assets/yellow-tea-v3.webp.asset.json";
+import imgContainer from "@/assets/food-container-v3.webp.asset.json";
+import imgDiningRoll from "@/assets/dining-roll-v3.webp.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -414,16 +422,73 @@ function Awards() {
   );
 }
 
+/* ---------- Logo Intro ---------- */
+
+function LogoIntro() {
+  return (
+    <Section id="about-brand" className="!py-20">
+      <div className="grid items-center gap-12 md:grid-cols-2">
+        <Reveal>
+          <div>
+            <span className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Our Brand</span>
+            <h2 className="mt-3 text-4xl font-semibold md:text-5xl">
+              Crafting a <span className="text-gradient-forest">greener legacy</span>
+            </h2>
+            <motion.p
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.4 }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+              className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg"
+            >
+              VY Enterprises is a trusted manufacturer and supplier of premium eco-friendly disposable products.
+              We offer high-quality Areca plates, paper plates, paper cups, food containers, dining rolls, and
+              customized packaging solutions with a commitment to quality and sustainability.
+            </motion.p>
+          </div>
+        </Reveal>
+
+        <Reveal delay={0.1}>
+          <div className="relative flex items-center justify-center md:justify-end">
+            <div className="absolute h-72 w-72 rounded-full bg-gold/20 blur-3xl md:h-96 md:w-96" />
+            <motion.div
+              animate={{ y: [0, -14, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+              className="relative"
+            >
+              <motion.div
+                animate={{ rotate: [0, 1.5, 0, -1.5, 0] }}
+                transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                className="relative rounded-[2rem] p-2 shadow-elegant"
+                style={{ background: "linear-gradient(135deg, hsl(var(--gold) / 0.6), hsl(var(--primary) / 0.3))" }}
+              >
+                <img
+                  src={crestLogo.url}
+                  alt="VY Enterprises logo"
+                  loading="lazy"
+                  className="h-64 w-64 rounded-[1.75rem] object-contain md:h-80 md:w-80"
+                />
+              </motion.div>
+            </motion.div>
+          </div>
+        </Reveal>
+      </div>
+    </Section>
+  );
+}
+
 /* ---------- Products ---------- */
 
+
+
 const productCatalog = [
-  { id: "areca-plates", name: "Paakku (Areca) Plates", sizes: ["12\"", "10\"", "8\"", "5.5\"", "3\""], desc: "Naturally fallen areca leaf, hot-pressed. Sturdy, elegant, 100% compostable.", icon: UtensilsCrossed },
-  { id: "areca-cups", name: "Paakku Cups", sizes: ["Standard"], desc: "Natural biodegradable cups for a refined table setting.", icon: Coffee },
-  { id: "paper-plates", name: "Paper Plates", sizes: ["12\"", "10\"", "9\"", "8\"", "7\"", "6\"", "180 GSM"], desc: "Food-safe, heavy-duty 180 GSM paper plates for every occasion.", icon: UtensilsCrossed },
-  { id: "paper-cups", name: "Paper Cups", sizes: ["90 ml", "110 ml", "150 ml", "210 ml", "250 ml"], desc: "Leak-proof paper cups for tea, coffee and cold beverages.", icon: Coffee },
-  { id: "yellow-tea", name: "Yellow Tea Cups", sizes: ["90 ml"], desc: "Classic yellow tea cups for tea shops and caterers.", icon: Coffee },
-  { id: "containers", name: "Paakku Food Containers", sizes: ["Takeaway"], desc: "Eco-friendly takeaway containers made from areca leaf.", icon: Package },
-  { id: "dining-rolls", name: "Dining Rolls", sizes: ["Sold by KG"], desc: "Food-grade dining rolls available by the kilogram for bulk needs.", icon: Boxes },
+  { id: "areca-plates", name: "Paakku (Areca) Plates", img: imgArecaPlate.url, sizes: ["12\"", "10\"", "8\"", "5.5\"", "3\""], desc: "Naturally fallen areca leaf, hot-pressed. Sturdy, elegant, 100% compostable.", icon: UtensilsCrossed },
+  { id: "areca-cups", name: "Paakku Cups", img: imgArecaCup.url, sizes: ["Standard"], desc: "Natural biodegradable cups for a refined table setting.", icon: Coffee },
+  { id: "paper-plates", name: "Paper Plates", img: imgPaperPlate.url, sizes: ["12\"", "10\"", "9\"", "8\"", "7\"", "6\"", "180 GSM"], desc: "Food-safe, heavy-duty 180 GSM paper plates for every occasion.", icon: UtensilsCrossed },
+  { id: "paper-cups", name: "Paper Cups", img: imgPaperCup.url, sizes: ["90 ml", "110 ml", "150 ml", "210 ml", "250 ml"], desc: "Leak-proof paper cups for tea, coffee and cold beverages.", icon: Coffee },
+  { id: "yellow-tea", name: "Yellow Tea Cups", img: imgYellowTea.url, sizes: ["90 ml"], desc: "Classic yellow tea cups for tea shops and caterers.", icon: Coffee },
+  { id: "containers", name: "Paakku Food Containers", img: imgContainer.url, sizes: ["Takeaway"], desc: "Eco-friendly takeaway containers made from areca leaf.", icon: Package },
+  { id: "dining-rolls", name: "Dining Rolls", img: imgDiningRoll.url, sizes: ["Sold by KG"], desc: "Food-grade dining rolls available by the kilogram for bulk needs.", icon: Boxes },
 ];
 
 function Products() {
@@ -446,47 +511,57 @@ function Products() {
             <Reveal key={p.id} delay={(i % 3) * 0.06}>
               <motion.article
                 layout
-                whileHover={{ y: -6 }}
-                className="group relative overflow-hidden rounded-3xl glass p-6 shadow-elegant"
+                whileHover={{ y: -8 }}
+                transition={{ type: "spring", stiffness: 260, damping: 22 }}
+                className="group relative flex h-full flex-col overflow-hidden rounded-3xl glass shadow-elegant"
               >
-                <div className="flex items-start justify-between">
-                  <div className="grid h-12 w-12 place-items-center rounded-2xl gradient-forest text-primary-foreground shadow-elegant">
-                    <Icon className="h-5 w-5" />
-                  </div>
-                  <span className="inline-flex items-center gap-1 rounded-full bg-primary/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-widest text-primary">
+                <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-primary/5 to-secondary/10">
+                  <motion.img
+                    src={p.img}
+                    alt={p.name}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-110"
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                  <span className="absolute left-4 top-4 inline-flex items-center gap-1 rounded-full bg-background/85 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-widest text-primary backdrop-blur">
                     <Leaf className="h-3 w-3" /> Eco
                   </span>
+                  <div className="absolute right-4 top-4 grid h-10 w-10 place-items-center rounded-xl gradient-forest text-primary-foreground shadow-elegant">
+                    <Icon className="h-4 w-4" />
+                  </div>
                 </div>
-                <h3 className="mt-5 text-xl font-semibold">{p.name}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{p.desc}</p>
-                <div className="mt-4 flex flex-wrap gap-1.5">
-                  {p.sizes.map((s) => (
-                    <span key={s} className="rounded-full border border-border bg-background/60 px-2.5 py-0.5 text-[11px] font-medium text-foreground/80">{s}</span>
-                  ))}
-                </div>
+                <div className="flex flex-1 flex-col p-6">
+                  <h3 className="text-xl font-semibold">{p.name}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{p.desc}</p>
+                  <div className="mt-4 flex flex-wrap gap-1.5">
+                    {p.sizes.map((s) => (
+                      <span key={s} className="rounded-full border border-border bg-background/60 px-2.5 py-0.5 text-[11px] font-medium text-foreground/80">{s}</span>
+                    ))}
+                  </div>
 
-                <motion.div
-                  initial={false}
-                  animate={{ height: open ? "auto" : 0, opacity: open ? 1 : 0 }}
-                  className="overflow-hidden"
-                >
-                  <ul className="mt-4 space-y-1.5 text-sm text-muted-foreground">
-                    <li className="flex items-center gap-2"><Check className="h-4 w-4 text-primary" /> Food-safe & compostable</li>
-                    <li className="flex items-center gap-2"><Check className="h-4 w-4 text-primary" /> Bulk pricing available</li>
-                    <li className="flex items-center gap-2"><Check className="h-4 w-4 text-primary" /> Custom branding on request</li>
-                  </ul>
-                </motion.div>
-
-                <div className="mt-5 flex gap-2">
-                  <a href="#contact" className="inline-flex flex-1 items-center justify-center gap-2 rounded-full gradient-forest px-4 py-2 text-xs font-medium text-primary-foreground shadow-elegant">
-                    Inquiry <ArrowRight className="h-3.5 w-3.5" />
-                  </a>
-                  <button
-                    onClick={() => setActive(open ? null : p.id)}
-                    className="rounded-full border border-border bg-background/60 px-4 py-2 text-xs font-medium hover:bg-accent"
+                  <motion.div
+                    initial={false}
+                    animate={{ height: open ? "auto" : 0, opacity: open ? 1 : 0 }}
+                    className="overflow-hidden"
                   >
-                    {open ? "Hide" : "Details"}
-                  </button>
+                    <ul className="mt-4 space-y-1.5 text-sm text-muted-foreground">
+                      <li className="flex items-center gap-2"><Check className="h-4 w-4 text-primary" /> Food-safe & compostable</li>
+                      <li className="flex items-center gap-2"><Check className="h-4 w-4 text-primary" /> Bulk pricing available</li>
+                      <li className="flex items-center gap-2"><Check className="h-4 w-4 text-primary" /> Custom branding on request</li>
+                    </ul>
+                  </motion.div>
+
+                  <div className="mt-auto flex gap-2 pt-5">
+                    <a href="#contact" className="inline-flex flex-1 items-center justify-center gap-2 rounded-full gradient-forest px-4 py-2 text-xs font-medium text-primary-foreground shadow-elegant">
+                      Inquiry <ArrowRight className="h-3.5 w-3.5" />
+                    </a>
+                    <button
+                      onClick={() => setActive(open ? null : p.id)}
+                      className="rounded-full border border-border bg-background/60 px-4 py-2 text-xs font-medium hover:bg-accent"
+                    >
+                      {open ? "Hide" : "Details"}
+                    </button>
+                  </div>
                 </div>
               </motion.article>
             </Reveal>
@@ -968,6 +1043,7 @@ function Landing() {
         <About />
         <Stats />
         <Awards />
+        <LogoIntro />
         <Products />
         <Finder />
         <Sustainability />
