@@ -32,10 +32,10 @@ import posterCirclePlate from "@/assets/circle-plate-v3.webp.asset.json";
 export const Route = createFileRoute("/products")({
   head: () => ({
     meta: [
-      { title: "Product Collection — VY Enterprises | Eco-Friendly Disposables" },
-      { name: "description", content: "Explore VY Enterprises' full range of premium eco-friendly disposables: areca palm-leaf Paakku plates, cups, food containers, paper cups, dining rolls, tiffin boxes and more." },
-      { property: "og:title", content: "Product Collection — VY Enterprises" },
-      { property: "og:description", content: "Premium eco-friendly disposable products — sustainable, food-safe, biodegradable. Wholesale & custom branding across India." },
+      { title: "Products — VY Enterprises Eco-Friendly Disposables" },
+      { name: "description", content: "Explore premium eco-friendly disposables including areca plates, paper cups, food containers, and dining rolls from VY Enterprises." },
+      { property: "og:title", content: "Products — VY Enterprises Eco-Friendly Disposables" },
+      { property: "og:description", content: "Premium eco-friendly disposables: areca plates, paper cups, food containers & dining rolls. Wholesale & custom branding." },
       { property: "og:image", content: award.url },
       { name: "twitter:image", content: award.url },
       { name: "twitter:card", content: "summary_large_image" },
