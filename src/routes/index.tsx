@@ -236,7 +236,7 @@ function Nav() {
   return (
     <header className="fixed inset-x-0 top-4 z-50 mx-auto flex w-[min(1200px,94%)] items-center justify-between rounded-full glass px-4 py-2.5 shadow-elegant">
       <a href="#top" className="flex items-center gap-2.5">
-        <img src={logo} alt="VY Enterprises" className="h-9 w-9 rounded-full object-cover ring-1 ring-primary/20" />
+        <img src={logo} alt="VY Enterprises logo — eco-friendly disposable products" className="h-9 w-9 rounded-full object-cover ring-1 ring-primary/20" />
         <div className="leading-tight">
           <div className="font-display text-base font-semibold text-foreground">VY Enterprises</div>
           <div className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Eco • Trichy</div>
@@ -956,7 +956,7 @@ function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 sm:px-8 md:grid-cols-4">
         <div className="md:col-span-2">
           <div className="flex items-center gap-3">
-            <img src={logo} alt="VY Enterprises" className="h-11 w-11 rounded-full object-cover ring-1 ring-primary/20" />
+            <img src={logo} alt="VY Enterprises logo — eco-friendly disposable products" className="h-11 w-11 rounded-full object-cover ring-1 ring-primary/20" />
             <div>
               <div className="font-display text-lg font-semibold">VY Enterprises</div>
               <div className="text-xs text-muted-foreground">Premium eco-friendly disposables • Trichy</div>
