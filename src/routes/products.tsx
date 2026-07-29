@@ -187,7 +187,7 @@ function ProductsPage() {
       {/* nav */}
       <header className="fixed left-0 right-0 top-2 z-40 mx-auto flex max-w-7xl items-center justify-between px-5 sm:px-8">
         <Link to="/" className="glass flex items-center gap-2 rounded-full px-3 py-1.5 shadow-elegant">
-          <img src={logo} alt="VY Enterprises" className="h-8 w-8 rounded-full object-cover" />
+          <img src={logo} alt="VY Enterprises logo — premium eco-friendly disposables manufacturer" className="h-8 w-8 rounded-full object-cover" />
           <span className="text-sm font-semibold tracking-tight">VY Enterprises</span>
         </Link>
         <nav className="glass hidden items-center gap-1 rounded-full px-1.5 py-1.5 text-sm shadow-elegant md:flex">
