@@ -956,7 +956,7 @@ function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 sm:px-8 md:grid-cols-4">
         <div className="md:col-span-2">
           <div className="flex items-center gap-3">
-            <img src={logo} alt="VY Enterprises" className="h-11 w-11 rounded-full object-cover ring-1 ring-primary/20" />
+            <img src={logo} alt="VY Enterprises logo — eco-friendly disposable products" className="h-11 w-11 rounded-full object-cover ring-1 ring-primary/20" />
             <div>
               <div className="font-display text-lg font-semibold">VY Enterprises</div>
               <div className="text-xs text-muted-foreground">Premium eco-friendly disposables • Trichy</div>
