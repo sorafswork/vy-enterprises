@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ProductsRouteImport } from './routes/products'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BlogPalmLeafVsBambooVsBagasseRouteImport } from './routes/blog.palm-leaf-vs-bamboo-vs-bagasse'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -28,35 +29,58 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogPalmLeafVsBambooVsBagasseRoute =
+  BlogPalmLeafVsBambooVsBagasseRouteImport.update({
+    id: '/blog/palm-leaf-vs-bamboo-vs-bagasse',
+    path: '/blog/palm-leaf-vs-bamboo-vs-bagasse',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/products': typeof ProductsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/blog/palm-leaf-vs-bamboo-vs-bagasse': typeof BlogPalmLeafVsBambooVsBagasseRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/products': typeof ProductsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/blog/palm-leaf-vs-bamboo-vs-bagasse': typeof BlogPalmLeafVsBambooVsBagasseRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/products': typeof ProductsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/blog/palm-leaf-vs-bamboo-vs-bagasse': typeof BlogPalmLeafVsBambooVsBagasseRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/products' | '/sitemap.xml'
+  fullPaths:
+    | '/'
+    | '/products'
+    | '/sitemap.xml'
+    | '/blog/palm-leaf-vs-bamboo-vs-bagasse'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/products' | '/sitemap.xml'
-  id: '__root__' | '/' | '/products' | '/sitemap.xml'
+  to:
+    | '/'
+    | '/products'
+    | '/sitemap.xml'
+    | '/blog/palm-leaf-vs-bamboo-vs-bagasse'
+  id:
+    | '__root__'
+    | '/'
+    | '/products'
+    | '/sitemap.xml'
+    | '/blog/palm-leaf-vs-bamboo-vs-bagasse'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ProductsRoute: typeof ProductsRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  BlogPalmLeafVsBambooVsBagasseRoute: typeof BlogPalmLeafVsBambooVsBagasseRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -82,6 +106,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/palm-leaf-vs-bamboo-vs-bagasse': {
+      id: '/blog/palm-leaf-vs-bamboo-vs-bagasse'
+      path: '/blog/palm-leaf-vs-bamboo-vs-bagasse'
+      fullPath: '/blog/palm-leaf-vs-bamboo-vs-bagasse'
+      preLoaderRoute: typeof BlogPalmLeafVsBambooVsBagasseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -89,6 +120,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ProductsRoute: ProductsRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  BlogPalmLeafVsBambooVsBagasseRoute: BlogPalmLeafVsBambooVsBagasseRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
