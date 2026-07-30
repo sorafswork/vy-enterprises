@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import logo from "@/assets/vy-logo.jpg";
 import awardImg from "@/assets/award.jpg.asset.json";
+import crestLogo from "@/assets/vy-crest-logo.png.asset.json";
 import slideArecaPlates from "@/assets/slide-areca-plates.png.asset.json";
 import slideArecaPlats from "@/assets/slide-areca-plats.webp.asset.json";
 import slideArecaCups from "@/assets/slide-areca-cups.webp.asset.json";
