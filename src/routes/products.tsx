@@ -28,6 +28,13 @@ import posterFoodContainer from "@/assets/food-container-v3.webp.asset.json";
 import posterDiningRoll from "@/assets/dining-roll-v3.webp.asset.json";
 import posterSnacksContainer from "@/assets/snacks-container-v3.jpg.asset.json";
 import posterCirclePlate from "@/assets/circle-plate-v3.webp.asset.json";
+import nBambooPlate from "@/assets/n-bamboo-compartment-plate.png.asset.json";
+import nArecaBowlSet from "@/assets/n-areca-bowl-plate-set.png.asset.json";
+import nSilverPlates from "@/assets/n-silver-paper-plate-sizes.png.asset.json";
+import nFloralTub from "@/assets/n-floral-paper-tub.png.asset.json";
+import nCoffeeCup from "@/assets/n-coffee-paper-cup.png.asset.json";
+import nFoodContainerPack from "@/assets/n-paakku-food-container-pack.jpg.asset.json";
+import nKraftRoll from "@/assets/n-kraft-dining-roll.png.asset.json";
 
 export const Route = createFileRoute("/products")({
   head: () => ({
