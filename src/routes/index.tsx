@@ -210,13 +210,38 @@ function CursorGlow() {
   const y = useMotionValue(-200);
   useEffect(() => {
     const onMove = (e: MouseEvent) => { x.set(e.clientX); y.set(e.clientY); };
+    const onTouch = (e: TouchEvent) => {
+      const t = e.touches[0];
+      if (t) { x.set(t.clientX); y.set(t.clientY); }
+    };
+    // On touch devices the glow follows the scroll position so the same
+    // ambient animation is visible while scrolling on mobile.
+    let raf = 0;
+    let progress = 0;
+    const onScroll = () => {
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = 0;
+        const max = Math.max(1, document.body.scrollHeight - window.innerHeight);
+        progress = window.scrollY / max;
+        x.set(window.innerWidth * (0.5 + 0.35 * Math.sin(progress * Math.PI * 4)));
+        y.set(window.innerHeight * (0.25 + 0.5 * ((progress * 3) % 1)));
+      });
+    };
     window.addEventListener("mousemove", onMove);
-    return () => window.removeEventListener("mousemove", onMove);
+    window.addEventListener("touchmove", onTouch, { passive: true });
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("mousemove", onMove);
+      window.removeEventListener("touchmove", onTouch);
+      window.removeEventListener("scroll", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
   }, [x, y]);
   return (
     <motion.div
       aria-hidden
-      className="pointer-events-none fixed left-0 top-0 z-[60] hidden h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full md:block"
+      className="pointer-events-none fixed left-0 top-0 z-[60] h-[260px] w-[260px] -translate-x-1/2 -translate-y-1/2 rounded-full md:h-[420px] md:w-[420px]"
       style={{
         x, y,
         background: "radial-gradient(closest-side, color-mix(in oklab, var(--leaf) 45%, transparent), transparent 70%)",
