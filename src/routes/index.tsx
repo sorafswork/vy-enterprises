@@ -389,7 +389,7 @@ function AwardShowcase() {
               src={crestLogo.url}
               alt="VY Enterprises gold crest logo"
               loading="lazy"
-              className="h-16 w-16 shrink-0 rounded-2xl object-contain shadow-elegant ring-1 ring-primary/20 sm:h-24 sm:w-24"
+              className="h-28 w-28 shrink-0 rounded-2xl object-contain shadow-elegant ring-1 ring-primary/20 sm:h-40 sm:w-40 md:h-48 md:w-48 lg:h-56 lg:w-56 self-end mt-4"
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
             />
