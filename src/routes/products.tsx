@@ -100,6 +100,14 @@ const products: Product[] = [
 
   { id: "paakku-snacks-container", title: "Paakku Snacks Container", desc: "Areca palm-leaf snacks container — retail pack with premium branding, ideal for takeaway snacks & catering.", category: "Paakku Snacks Container", image: posterSnacksContainer.url, tag: "New Arrival", poster: true },
   { id: "paakku-circle-plates", title: "Paakku Circle Plates", desc: "Round bamboo/areca circle plate with 3 compartments — elegant and 100% natural.", category: "Paakku Circle Plates", image: posterCirclePlate.url, tag: "New Arrival", poster: true },
+
+  { id: "n-bamboo-compartment-plate", title: "Paakku 3-Compartment Round Plate", desc: "Natural areca palm-leaf round plate with three neat compartments — ideal for meals and thali service.", category: "Paakku Circle Plates", image: nBambooPlate.url, tag: "New" },
+  { id: "n-areca-bowl-plate-set", title: "Paakku Bowl & Plate Set", desc: "Matching areca palm-leaf bowl and side plate — perfect for curries, desserts and starters.", category: "Paakku Cups", image: nArecaBowlSet.url, tag: "New" },
+  { id: "n-silver-paper-plate-sizes", title: "Silver Paper Plates — Size 6 to 12", desc: "Premium silver-coated paper plates available in five packed sizes for parties and catering.", category: "Paper Plates", image: nSilverPlates.url, tag: "New" },
+  { id: "n-floral-paper-tub", title: "Floral Print Paper Tub", desc: "Food-grade paper tub with floral design printed using soya-based ink — for biryani, snacks and desserts.", category: "Paper Cups", image: nFloralTub.url, tag: "New" },
+  { id: "n-coffee-paper-cup", title: "Coffee Special Brew Paper Cup", desc: "Food-grade printed paper cup for hot coffee and tea service.", category: "Yellow Tea Cups", image: nCoffeeCup.url, tag: "New" },
+  { id: "n-paakku-food-container-pack", title: "Paakku Food Container Pack", desc: "Branded retail pack of areca palm-leaf food containers with lids — leak and heat resistant.", category: "Food Containers", image: nFoodContainerPack.url, tag: "New" },
+  { id: "n-kraft-dining-roll", title: "Kraft Dining Roll", desc: "Soft multi-layer kraft dining roll for hygienic table service in restaurants and messes.", category: "Dining Rolls", image: nKraftRoll.url, tag: "New" },
 ];
 
 const categories: Category[] = [
