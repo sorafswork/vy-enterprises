@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import logo from "@/assets/vy-logo.jpg";
 import awardImg from "@/assets/award.jpg.asset.json";
+import crestLogo from "@/assets/vy-crest-logo.png.asset.json";
 import slideArecaPlates from "@/assets/slide-areca-plates.png.asset.json";
 import slideArecaPlats from "@/assets/slide-areca-plats.webp.asset.json";
 import slideArecaCups from "@/assets/slide-areca-cups.webp.asset.json";
@@ -209,13 +210,38 @@ function CursorGlow() {
   const y = useMotionValue(-200);
   useEffect(() => {
     const onMove = (e: MouseEvent) => { x.set(e.clientX); y.set(e.clientY); };
+    const onTouch = (e: TouchEvent) => {
+      const t = e.touches[0];
+      if (t) { x.set(t.clientX); y.set(t.clientY); }
+    };
+    // On touch devices the glow follows the scroll position so the same
+    // ambient animation is visible while scrolling on mobile.
+    let raf = 0;
+    let progress = 0;
+    const onScroll = () => {
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = 0;
+        const max = Math.max(1, document.body.scrollHeight - window.innerHeight);
+        progress = window.scrollY / max;
+        x.set(window.innerWidth * (0.5 + 0.35 * Math.sin(progress * Math.PI * 4)));
+        y.set(window.innerHeight * (0.25 + 0.5 * ((progress * 3) % 1)));
+      });
+    };
     window.addEventListener("mousemove", onMove);
-    return () => window.removeEventListener("mousemove", onMove);
+    window.addEventListener("touchmove", onTouch, { passive: true });
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("mousemove", onMove);
+      window.removeEventListener("touchmove", onTouch);
+      window.removeEventListener("scroll", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
   }, [x, y]);
   return (
     <motion.div
       aria-hidden
-      className="pointer-events-none fixed left-0 top-0 z-[60] hidden h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full md:block"
+      className="pointer-events-none fixed left-0 top-0 z-[60] h-[260px] w-[260px] -translate-x-1/2 -translate-y-1/2 rounded-full md:h-[420px] md:w-[420px]"
       style={{
         x, y,
         background: "radial-gradient(closest-side, color-mix(in oklab, var(--leaf) 45%, transparent), transparent 70%)",
@@ -353,34 +379,60 @@ function AwardShowcase() {
         </Reveal>
 
         <div className="overflow-hidden">
-          <Reveal>
-            <span className="inline-flex items-center gap-2 rounded-full glass px-3.5 py-1.5 text-xs font-medium text-foreground/80">
-              <BadgeCheck className="h-3.5 w-3.5 text-primary" /> KIPL Hello Confexa Honoree
-            </span>
-          </Reveal>
+          <div className="flex items-start justify-between gap-4">
+            <Reveal>
+              <span className="inline-flex items-center gap-2 rounded-full glass px-3.5 py-1.5 text-xs font-medium text-foreground/80">
+                <BadgeCheck className="h-3.5 w-3.5 text-primary" /> KIPL Hello Confexa Honoree
+              </span>
+            </Reveal>
+            <motion.img
+              src={crestLogo.url}
+              alt="VY Enterprises gold crest logo"
+              loading="lazy"
+              className="h-16 w-16 shrink-0 rounded-2xl object-contain shadow-elegant ring-1 ring-primary/20 sm:h-24 sm:w-24"
+              animate={{ y: [0, -8, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+            />
+          </div>
 
           <div className="mt-5 whitespace-nowrap">
             <motion.div
-              className="flex gap-8 text-5xl font-semibold text-gradient-forest sm:text-6xl md:text-7xl"
+              className="flex gap-8 text-3xl font-semibold text-gradient-forest sm:text-5xl md:text-7xl"
               animate={{ x: ["0%", "-50%"] }}
               transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
             >
               {Array.from({ length: 6 }).map((_, i) => (
                 <span key={i} className="flex items-center gap-8">
                   VY ENTERPRISES
-                  <Leaf className="h-8 w-8 shrink-0 text-primary" />
+                  <Leaf className="h-6 w-6 shrink-0 text-primary sm:h-8 sm:w-8" />
                 </span>
               ))}
             </motion.div>
           </div>
 
           <Reveal delay={0.1}>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
               Recognised for excellence in eco-friendly manufacturing — a proud milestone in our journey to make sustainable disposables the new standard.
             </p>
           </Reveal>
+
+          <ul className="mt-6 grid gap-3 sm:max-w-xl">
+            {[
+              "Premium-quality eco-friendly products",
+              "Bulk order supply",
+              "Retail and wholesale services",
+            ].map((point, i) => (
+              <Reveal key={point} delay={0.15 + i * 0.08}>
+                <li className="flex items-start gap-3 rounded-2xl glass px-4 py-3 shadow-elegant">
+                  <BadgeCheck className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+                  <span className="min-w-0 text-sm font-medium text-foreground sm:text-base">{point}</span>
+                </li>
+              </Reveal>
+            ))}
+          </ul>
         </div>
       </div>
+
     </section>
   );
 }
