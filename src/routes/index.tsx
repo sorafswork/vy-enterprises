@@ -133,7 +133,10 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: "Sustainable disposables for restaurants, hotels, caterers & retailers. Since 2021." },
       { property: "og:url", content: "/" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [
+      { rel: "canonical", href: "/" },
+      { rel: "preload", as: "image", href: HERO_SLIDES[0].src, fetchpriority: "high" },
+    ],
   }),
   component: Landing,
 });
