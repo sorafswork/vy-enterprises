@@ -65,6 +65,10 @@ function HeroSlider() {
                 src={s.src}
                 alt={s.label}
                 aria-hidden="true"
+                width={200}
+                height={200}
+                loading="lazy"
+                decoding="async"
                 className="absolute h-40 w-40 rounded-3xl object-cover opacity-0"
               />
             );
@@ -78,6 +82,10 @@ function HeroSlider() {
               key={idx}
               src={s.src}
               alt={s.label}
+              width={isActive ? 300 : 200}
+              height={isActive ? 300 : 200}
+              fetchPriority={idx === 0 ? "high" : "auto"}
+              decoding={idx === 0 ? "sync" : "async"}
               className="absolute rounded-3xl object-cover shadow-elegant ring-1 ring-primary/20"
               style={{ zIndex }}
               initial={false}
