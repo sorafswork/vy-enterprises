@@ -585,9 +585,9 @@ function ProductCard({ product, index, onView }: { product: Product; index: numb
             src={product.image}
             alt={product.title}
             loading="lazy"
-            className="h-full w-full object-cover"
-            initial={{ scale: 1.08 }}
-            animate={{ y: [0, -14, 0, 14, 0], scale: [1.08, 1.12, 1.08] }}
+            className="h-full w-full object-contain"
+            initial={{ scale: 1 }}
+            animate={{ y: [0, -10, 0, 10, 0], scale: [1, 1.03, 1] }}
             transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
           />
         ) : (
