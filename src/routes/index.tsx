@@ -135,7 +135,7 @@ function isActiveBadge(label: string) {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "VY Enterprises — Premium Eco-Friendly Disposable Products | Trichy" },
+      { title: "VY Enterprises — Eco-Friendly Disposables in Trichy" },
       { name: "description", content: "Areca plates, paper cups, food containers & dining rolls. Wholesale, retail & custom branding from Tiruchirappalli. Door delivery across Tamil Nadu." },
       { property: "og:title", content: "VY Enterprises — Premium Eco-Friendly Disposables" },
       { property: "og:description", content: "Sustainable disposables for restaurants, hotels, caterers & retailers. Since 2021." },
