@@ -69,8 +69,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "VY Enterprises — Eco-Friendly Disposables in Trichy" },
-      { name: "description", content: "Sustainable areca plates, paper cups & food containers from Tiruchirappalli. Wholesale, retail, custom branding & door delivery since 2021." },
+      { property: "og:site_name", content: "VY Enterprises" },
       { name: "author", content: "VY Enterprises" },
       { name: "google-site-verification", content: "-J2x9ndXftvHk2kOGhc_nat9iagUDTTWdW9Lw8NhMn4" },
       { property: "og:title", content: "VY Enterprises — Eco-Friendly Disposables in Trichy" },
