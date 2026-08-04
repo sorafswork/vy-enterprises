@@ -1,4 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useServerFn } from "@tanstack/react-start";
+import { submitInquiry } from "@/lib/inquiries.functions";
+
 import { motion, useScroll, useSpring, useInView, useMotionValue, animate as fmAnimate } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import {
