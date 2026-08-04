@@ -988,7 +988,64 @@ function Contact() {
   );
 }
 
+function InquiryForm() {
+  const send = useServerFn(submitInquiry);
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [message, setMessage] = useState("");
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const fd = new FormData(e.currentTarget);
+    setStatus("sending");
+    setMessage("");
+    try {
+      await send({
+        data: {
+          name: String(fd.get("name") ?? ""),
+          phone: String(fd.get("phone") ?? ""),
+          email: String(fd.get("email") ?? ""),
+          businessType: String(fd.get("businessType") ?? ""),
+          requirement: String(fd.get("requirement") ?? ""),
+        },
+      });
+      setStatus("sent");
+      setMessage("Thanks! Your inquiry is with us — we'll get back with a quote shortly.");
+      e.currentTarget.reset();
+    } catch (err) {
+      setStatus("error");
+      setMessage(err instanceof Error ? err.message : "Something went wrong. Please try WhatsApp instead.");
+    }
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="rounded-3xl glass p-8 shadow-elegant md:p-10">
+      <h3 className="text-2xl font-semibold">Inquiry form</h3>
+      <p className="mt-1 text-sm text-muted-foreground">Tell us what you need and we'll get back with a quote.</p>
+      <div className="mt-6 grid gap-4 sm:grid-cols-2">
+        <label className="flex flex-col gap-1.5 text-sm sm:col-span-1"><span className="font-medium">Name</span><input name="name" required maxLength={100} className="rounded-xl border border-border bg-background px-3.5 py-2.5 outline-none focus:ring-2 focus:ring-ring" placeholder="Your name" /></label>
+        <label className="flex flex-col gap-1.5 text-sm sm:col-span-1"><span className="font-medium">Phone</span><input name="phone" required maxLength={30} className="rounded-xl border border-border bg-background px-3.5 py-2.5 outline-none focus:ring-2 focus:ring-ring" placeholder="+91" /></label>
+        <label className="flex flex-col gap-1.5 text-sm sm:col-span-2"><span className="font-medium">Email</span><input name="email" type="email" maxLength={255} className="rounded-xl border border-border bg-background px-3.5 py-2.5 outline-none focus:ring-2 focus:ring-ring" placeholder="you@business.com" /></label>
+        <label className="flex flex-col gap-1.5 text-sm sm:col-span-2"><span className="font-medium">Business type</span>
+          <select name="businessType" className="rounded-xl border border-border bg-background px-3.5 py-2.5 outline-none focus:ring-2 focus:ring-ring">
+            {["Restaurant", "Tea Shop", "Wedding", "Hotel", "Office", "Catering", "Other"].map((o) => <option key={o}>{o}</option>)}
+          </select>
+        </label>
+        <label className="flex flex-col gap-1.5 text-sm sm:col-span-2"><span className="font-medium">Requirement</span>
+          <textarea name="requirement" rows={4} maxLength={1000} className="rounded-xl border border-border bg-background px-3.5 py-2.5 outline-none focus:ring-2 focus:ring-ring" placeholder="Products, quantities, delivery location…" />
+        </label>
+      </div>
+      <button type="submit" disabled={status === "sending"} className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full gradient-forest px-6 py-3 text-sm font-medium text-primary-foreground shadow-elegant hover:brightness-110 disabled:opacity-70">
+        {status === "sending" ? "Sending…" : "Send inquiry"} <ArrowRight className="h-4 w-4" />
+      </button>
+      {message && (
+        <p role="status" className={`mt-4 text-sm ${status === "error" ? "text-destructive" : "text-primary"}`}>{message}</p>
+      )}
+    </form>
+  );
+}
+
 /* ---------- Footer ---------- */
+
 
 function Footer() {
   return (
