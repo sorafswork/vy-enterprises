@@ -11,7 +11,7 @@ import {
   ShieldCheck, Boxes, PaintBucket, BadgeCheck, Clock, Users,
 } from "lucide-react";
 import logo from "@/assets/vy-logo.jpg";
-import awardImg from "@/assets/award.jpg.asset.json";
+import awardImg from "@/assets/award-2.jpg.asset.json";
 import crestLogo from "@/assets/vy-crest-logo.png.asset.json";
 import slideArecaPlates from "@/assets/slide-areca-plates.png.asset.json";
 import slideArecaPlats from "@/assets/slide-areca-plats.webp.asset.json";
