@@ -148,7 +148,70 @@ export const Route = createFileRoute("/")({
       { rel: "canonical", href: "/" },
       { rel: "preload", as: "image", href: HERO_SLIDES[0].src, fetchpriority: "high" },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Organization",
+              "@id": "https://vy-enterprises.lovable.app/#organization",
+              name: "VY Enterprises",
+              url: "https://vy-enterprises.lovable.app/",
+              telephone: ["+918508657377", "+919385712098"],
+              email: "business@vyenterprises.in",
+              foundingDate: "2021",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "No.27 Raman Nagar, South Ramalinga Nagar",
+                addressLocality: "Trichy",
+                postalCode: "620017",
+                addressRegion: "Tamil Nadu",
+                addressCountry: "IN",
+              },
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://vy-enterprises.lovable.app/#website",
+              url: "https://vy-enterprises.lovable.app/",
+              name: "VY Enterprises",
+              publisher: { "@id": "https://vy-enterprises.lovable.app/#organization" },
+            },
+            {
+              "@type": "LocalBusiness",
+              "@id": "https://vy-enterprises.lovable.app/#localbusiness",
+              name: "VY Enterprises",
+              description:
+                "Manufacturer and supplier of eco-friendly disposable areca plates, paper cups, food containers and dining rolls in Tiruchirappalli.",
+              url: "https://vy-enterprises.lovable.app/",
+              telephone: "+918508657377",
+              email: "business@vyenterprises.in",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "No.27 Raman Nagar, South Ramalinga Nagar",
+                addressLocality: "Trichy",
+                postalCode: "620017",
+                addressRegion: "Tamil Nadu",
+                addressCountry: "IN",
+              },
+              areaServed: "Tamil Nadu, India",
+            },
+            {
+              "@type": "FAQPage",
+              "@id": "https://vy-enterprises.lovable.app/#faq",
+              mainEntity: FAQ_ITEMS.map(([q, a]) => ({
+                "@type": "Question",
+                name: q,
+                acceptedAnswer: { "@type": "Answer", text: a },
+              })),
+            },
+          ],
+        }),
+      },
+    ],
   }),
+
   component: Landing,
 });
 
