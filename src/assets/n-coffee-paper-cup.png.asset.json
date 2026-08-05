@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "asset_id": "4d0d72cb-8d1d-4b46-b54a-13296d303f9a",
+  "asset_id": "b218c370-da6e-49db-960a-3f9c0cccc1e5",
   "project_id": "9c70b77c-d300-4ce2-9199-05fcbe82d7f0",
-  "url": "/__l5e/assets-v1/4d0d72cb-8d1d-4b46-b54a-13296d303f9a/n-coffee-paper-cup.png",
-  "r2_key": "a/v1/9c70b77c-d300-4ce2-9199-05fcbe82d7f0/4d0d72cb-8d1d-4b46-b54a-13296d303f9a/n-coffee-paper-cup.png",
-  "original_filename": "n-coffee-paper-cup.png",
-  "size": 1937401,
-  "content_type": "image/png",
-  "created_at": "2026-07-30T06:00:17Z"
+  "url": "/__l5e/assets-v1/b218c370-da6e-49db-960a-3f9c0cccc1e5/n-coffee-paper-cup.webp",
+  "r2_key": "a/v1/9c70b77c-d300-4ce2-9199-05fcbe82d7f0/b218c370-da6e-49db-960a-3f9c0cccc1e5/n-coffee-paper-cup.webp",
+  "original_filename": "n-coffee-paper-cup.webp",
+  "size": 61554,
+  "content_type": "image/webp",
+  "created_at": "2026-08-05T05:58:33Z"
 }

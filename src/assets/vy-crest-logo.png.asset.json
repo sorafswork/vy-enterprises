@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "asset_id": "f63408d3-fdec-4649-b9d5-aacac54d45b6",
+  "asset_id": "216a5fed-cab7-4e43-80c3-ad915dceec28",
   "project_id": "9c70b77c-d300-4ce2-9199-05fcbe82d7f0",
-  "url": "/__l5e/assets-v1/f63408d3-fdec-4649-b9d5-aacac54d45b6/vy-crest-logo.png",
-  "r2_key": "a/v1/9c70b77c-d300-4ce2-9199-05fcbe82d7f0/f63408d3-fdec-4649-b9d5-aacac54d45b6/vy-crest-logo.png",
-  "original_filename": "vy-crest-logo.png",
-  "size": 1429912,
-  "content_type": "image/png",
-  "created_at": "2026-07-30T05:43:52Z"
+  "url": "/__l5e/assets-v1/216a5fed-cab7-4e43-80c3-ad915dceec28/vy-crest-logo.webp",
+  "r2_key": "a/v1/9c70b77c-d300-4ce2-9199-05fcbe82d7f0/216a5fed-cab7-4e43-80c3-ad915dceec28/vy-crest-logo.webp",
+  "original_filename": "vy-crest-logo.webp",
+  "size": 52226,
+  "content_type": "image/webp",
+  "created_at": "2026-08-05T05:59:00Z"
 }
