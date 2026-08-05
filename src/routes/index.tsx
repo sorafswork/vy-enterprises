@@ -135,6 +135,15 @@ function isActiveBadge(label: string) {
   );
 }
 
+const FAQ_ITEMS: [string, string][] = [
+  ["What products do you offer?", "Areca (paakku) plates, paakku cups, paper plates, paper cups, yellow tea cups, paakku food containers and dining rolls."],
+  ["Can I order in bulk?", "Yes. Wholesale bulk orders are our specialty — with competitive pricing for restaurants, hotels, caterers and retailers."],
+  ["Do you provide wholesale pricing?", "Absolutely. Contact us with your requirement and we'll share a tailored wholesale quote."],
+  ["Can products be customized?", "Yes. Custom logo printing and brand-specific packaging is available for cups, plates and more."],
+  ["Do you deliver door-to-door?", "Yes, we offer door-to-door delivery across Trichy and neighboring regions."],
+  ["How do I place an order?", "Call us, message on WhatsApp, email business@vyenterprises.in, or fill out the inquiry form below."],
+];
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
