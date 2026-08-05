@@ -135,6 +135,15 @@ function isActiveBadge(label: string) {
   );
 }
 
+const FAQ_ITEMS: [string, string][] = [
+  ["What products do you offer?", "Areca (paakku) plates, paakku cups, paper plates, paper cups, yellow tea cups, paakku food containers and dining rolls."],
+  ["Can I order in bulk?", "Yes. Wholesale bulk orders are our specialty — with competitive pricing for restaurants, hotels, caterers and retailers."],
+  ["Do you provide wholesale pricing?", "Absolutely. Contact us with your requirement and we'll share a tailored wholesale quote."],
+  ["Can products be customized?", "Yes. Custom logo printing and brand-specific packaging is available for cups, plates and more."],
+  ["Do you deliver door-to-door?", "Yes, we offer door-to-door delivery across Trichy and neighboring regions."],
+  ["How do I place an order?", "Call us, message on WhatsApp, email business@vyenterprises.in, or fill out the inquiry form below."],
+];
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -148,7 +157,70 @@ export const Route = createFileRoute("/")({
       { rel: "canonical", href: "/" },
       { rel: "preload", as: "image", href: HERO_SLIDES[0].src, fetchpriority: "high" },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Organization",
+              "@id": "https://vy-enterprises.lovable.app/#organization",
+              name: "VY Enterprises",
+              url: "https://vy-enterprises.lovable.app/",
+              telephone: ["+918508657377", "+919385712098"],
+              email: "business@vyenterprises.in",
+              foundingDate: "2021",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "No.27 Raman Nagar, South Ramalinga Nagar",
+                addressLocality: "Trichy",
+                postalCode: "620017",
+                addressRegion: "Tamil Nadu",
+                addressCountry: "IN",
+              },
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://vy-enterprises.lovable.app/#website",
+              url: "https://vy-enterprises.lovable.app/",
+              name: "VY Enterprises",
+              publisher: { "@id": "https://vy-enterprises.lovable.app/#organization" },
+            },
+            {
+              "@type": "LocalBusiness",
+              "@id": "https://vy-enterprises.lovable.app/#localbusiness",
+              name: "VY Enterprises",
+              description:
+                "Manufacturer and supplier of eco-friendly disposable areca plates, paper cups, food containers and dining rolls in Tiruchirappalli.",
+              url: "https://vy-enterprises.lovable.app/",
+              telephone: "+918508657377",
+              email: "business@vyenterprises.in",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "No.27 Raman Nagar, South Ramalinga Nagar",
+                addressLocality: "Trichy",
+                postalCode: "620017",
+                addressRegion: "Tamil Nadu",
+                addressCountry: "IN",
+              },
+              areaServed: "Tamil Nadu, India",
+            },
+            {
+              "@type": "FAQPage",
+              "@id": "https://vy-enterprises.lovable.app/#faq",
+              mainEntity: FAQ_ITEMS.map(([q, a]) => ({
+                "@type": "Question",
+                name: q,
+                acceptedAnswer: { "@type": "Answer", text: a },
+              })),
+            },
+          ],
+        }),
+      },
+    ],
   }),
+
   component: Landing,
 });
 
@@ -908,14 +980,8 @@ function Testimonials() {
 /* ---------- FAQ ---------- */
 
 function FAQ() {
-  const faqs = [
-    ["What products do you offer?", "Areca (paakku) plates, paakku cups, paper plates, paper cups, yellow tea cups, paakku food containers and dining rolls."],
-    ["Can I order in bulk?", "Yes. Wholesale bulk orders are our specialty — with competitive pricing for restaurants, hotels, caterers and retailers."],
-    ["Do you provide wholesale pricing?", "Absolutely. Contact us with your requirement and we'll share a tailored wholesale quote."],
-    ["Can products be customized?", "Yes. Custom logo printing and brand-specific packaging is available for cups, plates and more."],
-    ["Do you deliver door-to-door?", "Yes, we offer door-to-door delivery across Trichy and neighboring regions."],
-    ["How do I place an order?", "Call us, message on WhatsApp, email business@vyenterprises.in, or fill out the inquiry form below."],
-  ];
+  const faqs = FAQ_ITEMS;
+
   const [open, setOpen] = useState<number | null>(0);
   return (
     <Section id="faq">

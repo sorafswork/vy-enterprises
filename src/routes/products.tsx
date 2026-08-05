@@ -48,7 +48,39 @@ export const Route = createFileRoute("/products")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "/products" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: "VY Enterprises Eco-Friendly Disposables",
+          itemListElement: [
+            "Paakku (Areca) Plates",
+            "Paakku Cups",
+            "Paper Plates",
+            "Paper Cups",
+            "Yellow Tea Cups",
+            "Paakku Food Containers",
+            "Dining Rolls",
+            "Paakku Snacks Container",
+            "Paakku Circle Plates",
+          ].map((name, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            item: {
+              "@type": "Product",
+              name,
+              category: "Eco-friendly disposable tableware",
+              material: "Biodegradable areca leaf / paper",
+              brand: { "@type": "Brand", name: "VY Enterprises" },
+            },
+          })),
+        }),
+      },
+    ],
   }),
+
   component: ProductsPage,
 });
 
