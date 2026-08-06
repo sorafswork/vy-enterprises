@@ -19,13 +19,13 @@ import paperCupPrinted from "@/assets/img/4.webp";
 import paperCupSonic from "@/assets/img/2.webp";
 
 // Newly attached posters
-import posterPaakkuPlate from "@/assets/img/paakku-plate-v4.webp";
-import posterPaakkuCup from "@/assets/img/paakku-cup-v4.webp";
-import posterPaperPlate from "@/assets/img/paper-plate-v4.webp";
-import posterPaperCup from "@/assets/img/paper-cup-v4.webp";
-import posterYellowTea from "@/assets/img/yellow-tea-v4.webp";
-import posterFoodContainer from "@/assets/img/food-container-v4.jpg";
-import posterDiningRoll from "@/assets/img/dining-roll-v4.webp";
+import posterPaakkuPlate from "@/assets/img/paakku-plate-v5.webp";
+import posterPaakkuCup from "@/assets/img/paakku-cup-v5.webp";
+import posterPaperPlate from "@/assets/img/paper-plate-v5.webp";
+import posterPaperCup from "@/assets/img/paper-cup-v5.webp";
+import posterYellowTea from "@/assets/img/yellow-tea-v5.webp";
+import posterFoodContainer from "@/assets/img/food-container-v5.webp";
+import posterDiningRoll from "@/assets/img/dining-roll-v5.webp";
 import posterSnacksContainer from "@/assets/img/snacks-container-v3.jpg";
 import posterCirclePlate from "@/assets/img/circle-plate-v3.webp";
 import nBambooPlate from "@/assets/img/n-bamboo-compartment-plate.webp";
