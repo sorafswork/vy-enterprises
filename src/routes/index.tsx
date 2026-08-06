@@ -11,30 +11,30 @@ import {
   ShieldCheck, Boxes, PaintBucket, BadgeCheck, Clock, Users,
 } from "lucide-react";
 import logo from "@/assets/vy-logo.jpg";
-import awardImg from "@/assets/award-2.jpg.asset.json";
-import crestLogo from "@/assets/vy-crest-logo.png.asset.json";
-import slideArecaPlates from "@/assets/slide-areca-plates.png.asset.json";
-import slideArecaPlats from "@/assets/slide-areca-plats.webp.asset.json";
-import slideArecaCups from "@/assets/slide-areca-cups.webp.asset.json";
-import slidePapperPlats from "@/assets/slide-papper-plats.webp.asset.json";
-import slideSquarePlates from "@/assets/slide-square-plates.webp.asset.json";
-import slideTeaCup from "@/assets/slide-tea-cup.webp.asset.json";
-import slideWaterCup from "@/assets/slide-water-cup.webp.asset.json";
-import slideDinningRoll from "@/assets/slide-dinning-roll.webp.asset.json";
-import slideVyPack1 from "@/assets/slide-vy-pack-1.jpg.asset.json";
-import slideVybPack from "@/assets/slide-vyb-pack.jpg.asset.json";
+import awardImg from "@/assets/img/award-2.jpg";
+import crestLogo from "@/assets/img/vy-crest-logo.webp";
+import slideArecaPlates from "@/assets/img/slide-areca-plates.webp";
+import slideArecaPlats from "@/assets/img/slide-areca-plats.webp";
+import slideArecaCups from "@/assets/img/slide-areca-cups.webp";
+import slidePapperPlats from "@/assets/img/slide-papper-plats.webp";
+import slideSquarePlates from "@/assets/img/slide-square-plates.webp";
+import slideTeaCup from "@/assets/img/slide-tea-cup.webp";
+import slideWaterCup from "@/assets/img/slide-water-cup.webp";
+import slideDinningRoll from "@/assets/img/slide-dinning-roll.webp";
+import slideVyPack1 from "@/assets/img/slide-vy-pack-1.jpg";
+import slideVybPack from "@/assets/img/slide-vyb-pack.jpg";
 
 const HERO_SLIDES = [
-  { src: slideArecaPlates.url, label: "Paakku Areca Plates" },
-  { src: slideArecaCups.url, label: "Paakku Areca Cups" },
-  { src: slidePapperPlats.url, label: "Silver Paper Plates" },
-  { src: slideWaterCup.url, label: "Printed Paper Cups" },
-  { src: slideTeaCup.url, label: "Tea & Snack Cups" },
-  { src: slideVyPack1.url, label: "Paakku Food Containers" },
-  { src: slideDinningRoll.url, label: "Dining Rolls" },
-  { src: slideVybPack.url, label: "Paakku Retail Pack" },
-  { src: slideSquarePlates.url, label: "Paakku Compartment Trays" },
-  { src: slideArecaPlats.url, label: "Paakku Circle Plates" },
+  { src: slideArecaPlates, label: "Paakku Areca Plates" },
+  { src: slideArecaCups, label: "Paakku Areca Cups" },
+  { src: slidePapperPlats, label: "Silver Paper Plates" },
+  { src: slideWaterCup, label: "Printed Paper Cups" },
+  { src: slideTeaCup, label: "Tea & Snack Cups" },
+  { src: slideVyPack1, label: "Paakku Food Containers" },
+  { src: slideDinningRoll, label: "Dining Rolls" },
+  { src: slideVybPack, label: "Paakku Retail Pack" },
+  { src: slideSquarePlates, label: "Paakku Compartment Trays" },
+  { src: slideArecaPlats, label: "Paakku Circle Plates" },
 ];
 
 function HeroSlider() {
@@ -446,7 +446,7 @@ function AwardShowcase() {
           >
             <div className="absolute -inset-4 rounded-3xl bg-primary/20 blur-2xl" />
             <motion.img
-              src={awardImg.url}
+              src={awardImg}
               alt="VY Enterprises receiving award at KIPL Hello Confexa for excellence in eco-friendly manufacturing"
               className="relative z-10 w-full rounded-3xl object-cover shadow-elegant ring-1 ring-primary/20"
               initial={{ opacity: 0, scale: 0.92 }}
@@ -472,7 +472,7 @@ function AwardShowcase() {
               </span>
             </Reveal>
             <motion.img
-              src={crestLogo.url}
+              src={crestLogo}
               alt="VY Enterprises gold crest logo"
               loading="lazy"
               className="h-28 w-28 shrink-0 rounded-2xl object-contain shadow-elegant ring-1 ring-primary/20 sm:h-40 sm:w-40 md:h-48 md:w-48 lg:h-56 lg:w-56 self-end mt-4"

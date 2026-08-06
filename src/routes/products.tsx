@@ -7,34 +7,34 @@ import {
 } from "lucide-react";
 
 import logo from "@/assets/vy-logo.jpg";
-import award from "@/assets/vy.jpg.asset.json";
-import paakkuPack from "@/assets/vy_pack_1.jpg.asset.json";
-import paakkuPackB from "@/assets/vyb_pack.jpg.asset.json";
-import paakkuTray from "@/assets/15.png.asset.json";
-import paakkuBowl from "@/assets/9.png.asset.json";
-import paakkuPlate from "@/assets/8.png.asset.json";
-import silverPlates from "@/assets/6.png.asset.json";
-import diningRoll from "@/assets/5.png.asset.json";
-import paperCupPrinted from "@/assets/4.png.asset.json";
-import paperCupSonic from "@/assets/2.png.asset.json";
+import award from "@/assets/img/vy.jpg";
+import paakkuPack from "@/assets/img/vy_pack_1.jpg";
+import paakkuPackB from "@/assets/img/vyb_pack.jpg";
+import paakkuTray from "@/assets/img/15.webp";
+import paakkuBowl from "@/assets/img/9.webp";
+import paakkuPlate from "@/assets/img/8.webp";
+import silverPlates from "@/assets/img/6.webp";
+import diningRoll from "@/assets/img/5.webp";
+import paperCupPrinted from "@/assets/img/4.webp";
+import paperCupSonic from "@/assets/img/2.webp";
 
 // Newly attached posters
-import posterPaakkuPlate from "@/assets/paakku-plate-v4.png.asset.json";
-import posterPaakkuCup from "@/assets/paakku-cup-v4.png.asset.json";
-import posterPaperPlate from "@/assets/paper-plate-v4.png.asset.json";
-import posterPaperCup from "@/assets/paper-cup-v4.png.asset.json";
-import posterYellowTea from "@/assets/yellow-tea-v4.png.asset.json";
-import posterFoodContainer from "@/assets/food-container-v4.jpg.asset.json";
-import posterDiningRoll from "@/assets/dining-roll-v4.png.asset.json";
-import posterSnacksContainer from "@/assets/snacks-container-v3.jpg.asset.json";
-import posterCirclePlate from "@/assets/circle-plate-v3.webp.asset.json";
-import nBambooPlate from "@/assets/n-bamboo-compartment-plate.png.asset.json";
-import nArecaBowlSet from "@/assets/n-areca-bowl-plate-set.png.asset.json";
-import nSilverPlates from "@/assets/n-silver-paper-plate-sizes.png.asset.json";
-import nFloralTub from "@/assets/n-floral-paper-tub.png.asset.json";
-import nCoffeeCup from "@/assets/n-coffee-paper-cup.png.asset.json";
-import nFoodContainerPack from "@/assets/n-paakku-food-container-pack.jpg.asset.json";
-import nKraftRoll from "@/assets/n-kraft-dining-roll.png.asset.json";
+import posterPaakkuPlate from "@/assets/img/paakku-plate-v4.webp";
+import posterPaakkuCup from "@/assets/img/paakku-cup-v4.webp";
+import posterPaperPlate from "@/assets/img/paper-plate-v4.webp";
+import posterPaperCup from "@/assets/img/paper-cup-v4.webp";
+import posterYellowTea from "@/assets/img/yellow-tea-v4.webp";
+import posterFoodContainer from "@/assets/img/food-container-v4.jpg";
+import posterDiningRoll from "@/assets/img/dining-roll-v4.webp";
+import posterSnacksContainer from "@/assets/img/snacks-container-v3.jpg";
+import posterCirclePlate from "@/assets/img/circle-plate-v3.webp";
+import nBambooPlate from "@/assets/img/n-bamboo-compartment-plate.webp";
+import nArecaBowlSet from "@/assets/img/n-areca-bowl-plate-set.webp";
+import nSilverPlates from "@/assets/img/n-silver-paper-plate-sizes.webp";
+import nFloralTub from "@/assets/img/n-floral-paper-tub.webp";
+import nCoffeeCup from "@/assets/img/n-coffee-paper-cup.webp";
+import nFoodContainerPack from "@/assets/img/n-paakku-food-container-pack.jpg";
+import nKraftRoll from "@/assets/img/n-kraft-dining-roll.webp";
 
 export const Route = createFileRoute("/products")({
   head: () => ({
@@ -43,8 +43,8 @@ export const Route = createFileRoute("/products")({
       { name: "description", content: "Explore premium eco-friendly disposables including areca plates, paper cups, food containers, and dining rolls from VY Enterprises." },
       { property: "og:title", content: "Products — VY Enterprises Eco-Friendly Disposables" },
       { property: "og:description", content: "Premium eco-friendly disposables: areca plates, paper cups, food containers & dining rolls. Wholesale & custom branding." },
-      { property: "og:image", content: award.url },
-      { name: "twitter:image", content: award.url },
+      { property: "og:image", content: `https://vyenterprises.in${award}` },
+      { name: "twitter:image", content: `https://vyenterprises.in${award}` },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "/products" }],
@@ -110,43 +110,43 @@ type Product = {
 };
 
 const products: Product[] = [
-  { id: "poster-paakku-plate", title: "Paakku (Areca) Compartment Plate", desc: "Featured poster — natural areca palm-leaf 3-compartment plate.", category: "Paakku Plates", image: posterPaakkuPlate.url, tag: "New Arrival", poster: true },
-  { id: "paakku-round-plate", title: "Paakku Round Plate", desc: "Natural areca palm-leaf round plate — sturdy, food-safe, biodegradable.", category: "Paakku Plates", image: paakkuPlate.url, tag: "Best Seller" },
-  { id: "paakku-compartment-tray", title: "Paakku 4-Compartment Tray", desc: "Meal tray with four sections — perfect for thali & catering.", category: "Paakku Plates", image: paakkuTray.url, tag: "Catering" },
+  { id: "poster-paakku-plate", title: "Paakku (Areca) Compartment Plate", desc: "Featured poster — natural areca palm-leaf 3-compartment plate.", category: "Paakku Plates", image: posterPaakkuPlate, tag: "New Arrival", poster: true },
+  { id: "paakku-round-plate", title: "Paakku Round Plate", desc: "Natural areca palm-leaf round plate — sturdy, food-safe, biodegradable.", category: "Paakku Plates", image: paakkuPlate, tag: "Best Seller" },
+  { id: "paakku-compartment-tray", title: "Paakku 4-Compartment Tray", desc: "Meal tray with four sections — perfect for thali & catering.", category: "Paakku Plates", image: paakkuTray, tag: "Catering" },
 
-  { id: "poster-paakku-cup", title: "Paakku Areca Cups & Bowls", desc: "Featured poster — round areca palm-leaf cups and bowls.", category: "Paakku Cups", image: posterPaakkuCup.url, tag: "New Arrival", poster: true },
-  { id: "paakku-bowl-set", title: "Paakku Bowl Set", desc: "Round areca bowls for curries, desserts and starters.", category: "Paakku Cups", image: paakkuBowl.url },
+  { id: "poster-paakku-cup", title: "Paakku Areca Cups & Bowls", desc: "Featured poster — round areca palm-leaf cups and bowls.", category: "Paakku Cups", image: posterPaakkuCup, tag: "New Arrival", poster: true },
+  { id: "paakku-bowl-set", title: "Paakku Bowl Set", desc: "Round areca bowls for curries, desserts and starters.", category: "Paakku Cups", image: paakkuBowl },
 
-  { id: "poster-paper-plate", title: "Silver Paper Plates — Full Range", desc: "Featured poster — silver paper plates in sizes 6 to 12.", category: "Paper Plates", image: posterPaperPlate.url, tag: "New Arrival", poster: true },
-  { id: "silver-paper-plates", title: "Silver Paper Plates — Sizes 6 to 12", desc: "Premium silver-coated paper plates in five sizes.", category: "Paper Plates", image: silverPlates.url, tag: "Multi-size" },
+  { id: "poster-paper-plate", title: "Silver Paper Plates — Full Range", desc: "Featured poster — silver paper plates in sizes 6 to 12.", category: "Paper Plates", image: posterPaperPlate, tag: "New Arrival", poster: true },
+  { id: "silver-paper-plates", title: "Silver Paper Plates — Sizes 6 to 12", desc: "Premium silver-coated paper plates in five sizes.", category: "Paper Plates", image: silverPlates, tag: "Multi-size" },
 
-  { id: "poster-paper-cup", title: "Printed Paper Cup — Floral", desc: "Featured poster — soya-ink printed floral paper cup.", category: "Paper Cups", image: posterPaperCup.url, tag: "New Arrival", poster: true },
-  { id: "paper-cup-printed", title: "Printed Paper Cup — Soya Ink", desc: "Elegant floral print paper cup printed with soya-based ink.", category: "Paper Cups", image: paperCupPrinted.url },
-  { id: "paper-cup-character", title: "Character Print Paper Cup", desc: "Fun character-printed paper cup for parties & events.", category: "Paper Cups", image: paperCupSonic.url },
+  { id: "poster-paper-cup", title: "Printed Paper Cup — Floral", desc: "Featured poster — soya-ink printed floral paper cup.", category: "Paper Cups", image: posterPaperCup, tag: "New Arrival", poster: true },
+  { id: "paper-cup-printed", title: "Printed Paper Cup — Soya Ink", desc: "Elegant floral print paper cup printed with soya-based ink.", category: "Paper Cups", image: paperCupPrinted },
+  { id: "paper-cup-character", title: "Character Print Paper Cup", desc: "Fun character-printed paper cup for parties & events.", category: "Paper Cups", image: paperCupSonic },
 
-  { id: "poster-yellow-tea", title: "Yellow Tea Cup — Coffee Print", desc: "Featured poster — food-grade paper cup with coffee print.", category: "Yellow Tea Cups", image: posterYellowTea.url, tag: "New Arrival", poster: true },
-  { id: "yellow-tea-cup", title: "Yellow Tea Cup — Plain", desc: "Warm yellow-tinted paper tea cup, food-grade and compostable.", category: "Yellow Tea Cups", image: paperCupPrinted.url },
+  { id: "poster-yellow-tea", title: "Yellow Tea Cup — Coffee Print", desc: "Featured poster — food-grade paper cup with coffee print.", category: "Yellow Tea Cups", image: posterYellowTea, tag: "New Arrival", poster: true },
+  { id: "yellow-tea-cup", title: "Yellow Tea Cup — Plain", desc: "Warm yellow-tinted paper tea cup, food-grade and compostable.", category: "Yellow Tea Cups", image: paperCupPrinted },
 
-  { id: "poster-food-container", title: "Paakku Food Container — Meal Ready", desc: "Featured poster — natural areca palm-leaf food container.", category: "Food Containers", image: posterFoodContainer.url, tag: "New Arrival", poster: true },
-  { id: "paakku-container-a", title: "Paakku Food Container — Meal Box", desc: "Leak & heat resistant areca meal container with lid.", category: "Food Containers", image: paakkuPack.url, tag: "Hot & Cold" },
-  { id: "paakku-container-b", title: "Paakku Assorted Pack — Plates & Bowls", desc: "Retail-ready assorted pack of areca plates, bowls & trays.", category: "Food Containers", image: paakkuPackB.url, tag: "Retail Pack" },
+  { id: "poster-food-container", title: "Paakku Food Container — Meal Ready", desc: "Featured poster — natural areca palm-leaf food container.", category: "Food Containers", image: posterFoodContainer, tag: "New Arrival", poster: true },
+  { id: "paakku-container-a", title: "Paakku Food Container — Meal Box", desc: "Leak & heat resistant areca meal container with lid.", category: "Food Containers", image: paakkuPack, tag: "Hot & Cold" },
+  { id: "paakku-container-b", title: "Paakku Assorted Pack — Plates & Bowls", desc: "Retail-ready assorted pack of areca plates, bowls & trays.", category: "Food Containers", image: paakkuPackB, tag: "Retail Pack" },
 
-  { id: "poster-dining-roll", title: "Dining Roll — Kraft Poster", desc: "Featured poster — multi-layer kraft dining roll.", category: "Dining Rolls", image: posterDiningRoll.url, tag: "New Arrival", poster: true },
-  { id: "dining-roll", title: "Dining Roll — Kraft Paper", desc: "Multi-layer kraft dining roll for hygienic table service.", category: "Dining Rolls", image: diningRoll.url },
+  { id: "poster-dining-roll", title: "Dining Roll — Kraft Poster", desc: "Featured poster — multi-layer kraft dining roll.", category: "Dining Rolls", image: posterDiningRoll, tag: "New Arrival", poster: true },
+  { id: "dining-roll", title: "Dining Roll — Kraft Paper", desc: "Multi-layer kraft dining roll for hygienic table service.", category: "Dining Rolls", image: diningRoll },
 
-  { id: "table-service-kit", title: "Clean & Practical Table Service Kit", desc: "Curated table service kit for restaurants and events.", category: "Table Service", image: paakkuPackB.url },
-  { id: "tiffin-box", title: "Areca Tiffin Box Container", desc: "Compartment tiffin box crafted from areca palm-leaf.", category: "Tiffin Boxes", image: paakkuTray.url },
+  { id: "table-service-kit", title: "Clean & Practical Table Service Kit", desc: "Curated table service kit for restaurants and events.", category: "Table Service", image: paakkuPackB },
+  { id: "tiffin-box", title: "Areca Tiffin Box Container", desc: "Compartment tiffin box crafted from areca palm-leaf.", category: "Tiffin Boxes", image: paakkuTray },
 
-  { id: "paakku-snacks-container", title: "Paakku Snacks Container", desc: "Areca palm-leaf snacks container — retail pack with premium branding, ideal for takeaway snacks & catering.", category: "Paakku Snacks Container", image: posterSnacksContainer.url, tag: "New Arrival", poster: true },
-  { id: "paakku-circle-plates", title: "Paakku Circle Plates", desc: "Round bamboo/areca circle plate with 3 compartments — elegant and 100% natural.", category: "Paakku Circle Plates", image: posterCirclePlate.url, tag: "New Arrival", poster: true },
+  { id: "paakku-snacks-container", title: "Paakku Snacks Container", desc: "Areca palm-leaf snacks container — retail pack with premium branding, ideal for takeaway snacks & catering.", category: "Paakku Snacks Container", image: posterSnacksContainer, tag: "New Arrival", poster: true },
+  { id: "paakku-circle-plates", title: "Paakku Circle Plates", desc: "Round bamboo/areca circle plate with 3 compartments — elegant and 100% natural.", category: "Paakku Circle Plates", image: posterCirclePlate, tag: "New Arrival", poster: true },
 
-  { id: "n-bamboo-compartment-plate", title: "Paakku 3-Compartment Round Plate", desc: "Natural areca palm-leaf round plate with three neat compartments — ideal for meals and thali service.", category: "Paakku Circle Plates", image: nBambooPlate.url, tag: "New" },
-  { id: "n-areca-bowl-plate-set", title: "Paakku Bowl & Plate Set", desc: "Matching areca palm-leaf bowl and side plate — perfect for curries, desserts and starters.", category: "Paakku Cups", image: nArecaBowlSet.url, tag: "New" },
-  { id: "n-silver-paper-plate-sizes", title: "Silver Paper Plates — Size 6 to 12", desc: "Premium silver-coated paper plates available in five packed sizes for parties and catering.", category: "Paper Plates", image: nSilverPlates.url, tag: "New" },
-  { id: "n-floral-paper-tub", title: "Floral Print Paper Tub", desc: "Food-grade paper tub with floral design printed using soya-based ink — for biryani, snacks and desserts.", category: "Paper Cups", image: nFloralTub.url, tag: "New" },
-  { id: "n-coffee-paper-cup", title: "Coffee Special Brew Paper Cup", desc: "Food-grade printed paper cup for hot coffee and tea service.", category: "Yellow Tea Cups", image: nCoffeeCup.url, tag: "New" },
-  { id: "n-paakku-food-container-pack", title: "Paakku Food Container Pack", desc: "Branded retail pack of areca palm-leaf food containers with lids — leak and heat resistant.", category: "Food Containers", image: nFoodContainerPack.url, tag: "New" },
-  { id: "n-kraft-dining-roll", title: "Kraft Dining Roll", desc: "Soft multi-layer kraft dining roll for hygienic table service in restaurants and messes.", category: "Dining Rolls", image: nKraftRoll.url, tag: "New" },
+  { id: "n-bamboo-compartment-plate", title: "Paakku 3-Compartment Round Plate", desc: "Natural areca palm-leaf round plate with three neat compartments — ideal for meals and thali service.", category: "Paakku Circle Plates", image: nBambooPlate, tag: "New" },
+  { id: "n-areca-bowl-plate-set", title: "Paakku Bowl & Plate Set", desc: "Matching areca palm-leaf bowl and side plate — perfect for curries, desserts and starters.", category: "Paakku Cups", image: nArecaBowlSet, tag: "New" },
+  { id: "n-silver-paper-plate-sizes", title: "Silver Paper Plates — Size 6 to 12", desc: "Premium silver-coated paper plates available in five packed sizes for parties and catering.", category: "Paper Plates", image: nSilverPlates, tag: "New" },
+  { id: "n-floral-paper-tub", title: "Floral Print Paper Tub", desc: "Food-grade paper tub with floral design printed using soya-based ink — for biryani, snacks and desserts.", category: "Paper Cups", image: nFloralTub, tag: "New" },
+  { id: "n-coffee-paper-cup", title: "Coffee Special Brew Paper Cup", desc: "Food-grade printed paper cup for hot coffee and tea service.", category: "Yellow Tea Cups", image: nCoffeeCup, tag: "New" },
+  { id: "n-paakku-food-container-pack", title: "Paakku Food Container Pack", desc: "Branded retail pack of areca palm-leaf food containers with lids — leak and heat resistant.", category: "Food Containers", image: nFoodContainerPack, tag: "New" },
+  { id: "n-kraft-dining-roll", title: "Kraft Dining Roll", desc: "Soft multi-layer kraft dining roll for hygienic table service in restaurants and messes.", category: "Dining Rolls", image: nKraftRoll, tag: "New" },
 ];
 
 const categories: Category[] = [
@@ -251,7 +251,7 @@ function ProductsPage() {
           style={{ y: heroY, scale: heroScale }}
           className="absolute inset-0"
         >
-          <img src={award.url} alt="VY Enterprises recognized for excellence in eco-friendly manufacturing" className="h-full w-full object-cover" />
+          <img src={award} alt="VY Enterprises recognized for excellence in eco-friendly manufacturing" className="h-full w-full object-cover" />
         </motion.div>
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/55 to-black/85" />
         {/* floating shapes */}
@@ -452,7 +452,7 @@ function ProductsPage() {
       {/* AWARDS */}
       <section id="awards" className="relative overflow-hidden py-24 md:py-32">
         <div className="absolute inset-0">
-          <img src={award.url} alt="" className="h-full w-full object-cover" />
+          <img src={award} alt="" className="h-full w-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-b from-[color:var(--forest)]/85 via-[color:var(--forest)]/80 to-black/85" />
         </div>
         <div className="relative mx-auto max-w-6xl px-5 text-white sm:px-8">
