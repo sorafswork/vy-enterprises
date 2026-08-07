@@ -70,7 +70,7 @@ function HeroSlider() {
                 aria-hidden="true"
                 width={200}
                 height={200}
-                loading="lazy" decoding="async"
+                loading="lazy"
                 decoding="async"
                 className="absolute h-40 w-40 rounded-3xl object-cover opacity-0"
               />
@@ -1063,7 +1063,7 @@ function Contact() {
                 title="Map"
                 src="https://www.google.com/maps?q=Raman+Nagar+South+Ramalinga+Nagar+Trichy+620017&output=embed"
                 className="h-56 w-full"
-                loading="lazy" decoding="async"
+                loading="lazy"
               />
             </div>
           </div>
