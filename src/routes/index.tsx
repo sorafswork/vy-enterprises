@@ -171,9 +171,9 @@ export const Route = createFileRoute("/")({
           "@graph": [
             {
               "@type": "Organization",
-              "@id": "https://vy-enterprises.lovable.app/#organization",
+              "@id": "https://vyenterprises.in/#organization",
               name: "VY Enterprises",
-              url: "https://vy-enterprises.lovable.app/",
+              url: "https://vyenterprises.in/",
               telephone: ["+918508657377", "+919385712098"],
               email: "business@vyenterprises.in",
               foundingDate: "2021",
@@ -188,18 +188,18 @@ export const Route = createFileRoute("/")({
             },
             {
               "@type": "WebSite",
-              "@id": "https://vy-enterprises.lovable.app/#website",
-              url: "https://vy-enterprises.lovable.app/",
+              "@id": "https://vyenterprises.in/#website",
+              url: "https://vyenterprises.in/",
               name: "VY Enterprises",
-              publisher: { "@id": "https://vy-enterprises.lovable.app/#organization" },
+              publisher: { "@id": "https://vyenterprises.in/#organization" },
             },
             {
               "@type": "LocalBusiness",
-              "@id": "https://vy-enterprises.lovable.app/#localbusiness",
+              "@id": "https://vyenterprises.in/#localbusiness",
               name: "VY Enterprises",
               description:
                 "Manufacturer and supplier of eco-friendly disposable areca plates, paper cups, food containers and dining rolls in Tiruchirappalli.",
-              url: "https://vy-enterprises.lovable.app/",
+              url: "https://vyenterprises.in/",
               telephone: "+918508657377",
               email: "business@vyenterprises.in",
               address: {
@@ -214,7 +214,7 @@ export const Route = createFileRoute("/")({
             },
             {
               "@type": "FAQPage",
-              "@id": "https://vy-enterprises.lovable.app/#faq",
+              "@id": "https://vyenterprises.in/#faq",
               mainEntity: FAQ_ITEMS.map(([q, a]) => ({
                 "@type": "Question",
                 name: q,
