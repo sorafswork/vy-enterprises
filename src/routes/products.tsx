@@ -39,15 +39,21 @@ import nKraftRoll from "@/assets/img/n-kraft-dining-roll.webp";
 export const Route = createFileRoute("/products")({
   head: () => ({
     meta: [
-      { title: "Products — VY Enterprises Eco-Friendly Disposables" },
-      { name: "description", content: "Explore premium eco-friendly disposables including areca plates, paper cups, food containers, and dining rolls from VY Enterprises." },
-      { property: "og:title", content: "Products — VY Enterprises Eco-Friendly Disposables" },
-      { property: "og:description", content: "Premium eco-friendly disposables: areca plates, paper cups, food containers & dining rolls. Wholesale & custom branding." },
+      { title: "Areca Plates, Paper Cups & Food Containers | VY Enterprises" },
+      { name: "description", content: "Product collection from VY Enterprises Trichy — areca plates, areca cups, paper plates, paper cups, food containers & dining rolls. Areca plate manufacturer & supplier for wholesale and custom branding." },
+      { name: "keywords", content: "areca plate manufacturer, areca plate supplier, areca cups, paper plates, paper cups, food containers, dining rolls, eco-friendly disposable products, VY Enterprises Trichy" },
+      { property: "og:title", content: "Areca Plates, Paper Cups & Food Containers | VY Enterprises" },
+      { property: "og:description", content: "Premium eco-friendly disposables: areca plates & cups, paper plates & cups, food containers and dining rolls. Wholesale & custom branding from Trichy." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://vyenterprises.in/products" },
       { property: "og:image", content: `https://vyenterprises.in${award}` },
+      { name: "twitter:title", content: "Areca Plates, Paper Cups & Food Containers | VY Enterprises" },
+      { name: "twitter:description", content: "Premium eco-friendly disposables from VY Enterprises, Trichy — wholesale & custom branding." },
       { name: "twitter:image", content: `https://vyenterprises.in${award}` },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/products" }],
+    links: [{ rel: "canonical", href: "https://vyenterprises.in/products" }],
+
     scripts: [
       {
         type: "application/ld+json",
@@ -435,8 +441,8 @@ function ProductsPage() {
             >
               <img
                 src={p.image}
-                alt={p.title}
-                loading="lazy"
+                alt={`${p.title} — ${p.category} by VY Enterprises, areca plate manufacturer & supplier in Trichy`}
+                loading="lazy" decoding="async"
                 className="h-auto w-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
@@ -568,7 +574,7 @@ function ProductsPage() {
               >
                 <X className="h-4 w-4" />
               </button>
-              <img src={lightbox.image} alt={lightbox.title} className="max-h-[70vh] w-full object-contain bg-[color:var(--beige)]" />
+              <img src={lightbox.image} alt={`${lightbox.title} — eco-friendly ${lightbox.category} from VY Enterprises Trichy`} className="max-h-[70vh] w-full object-contain bg-[color:var(--beige)]" />
               <div className="p-6">
                 <div className="text-xs uppercase tracking-widest text-[color:var(--forest)]">{lightbox.category}</div>
                 <h4 className="mt-1 font-display text-2xl font-bold">{lightbox.title}</h4>
@@ -615,8 +621,8 @@ function ProductCard({ product, index, onView }: { product: Product; index: numb
         {product.poster ? (
           <motion.img
             src={product.image}
-            alt={product.title}
-            loading="lazy"
+            alt={`${product.title} — eco-friendly ${product.category} from VY Enterprises Trichy`}
+            loading="lazy" decoding="async"
             className="h-full w-full object-contain"
             initial={{ scale: 1 }}
             animate={{ y: [0, -10, 0, 10, 0], scale: [1, 1.03, 1] }}
@@ -625,8 +631,8 @@ function ProductCard({ product, index, onView }: { product: Product; index: numb
         ) : (
           <img
             src={product.image}
-            alt={product.title}
-            loading="lazy"
+            alt={`${product.title} — eco-friendly ${product.category} from VY Enterprises Trichy`}
+            loading="lazy" decoding="async"
             className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
           />
         )}

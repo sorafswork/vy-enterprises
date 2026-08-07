@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://vy-enterprises.lovable.app/sitemap.xml
+Sitemap: https://vyenterprises.in/sitemap.xml

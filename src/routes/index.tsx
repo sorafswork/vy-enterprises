@@ -147,16 +147,22 @@ const FAQ_ITEMS: [string, string][] = [
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "VY Enterprises — Eco-Friendly Disposables in Trichy" },
-      { name: "description", content: "Areca plates, paper cups, food containers & dining rolls. Wholesale, retail & custom branding from Tiruchirappalli. Door delivery across Tamil Nadu." },
-      { property: "og:title", content: "VY Enterprises — Premium Eco-Friendly Disposables" },
-      { property: "og:description", content: "Sustainable disposables for restaurants, hotels, caterers & retailers. Since 2021." },
-      { property: "og:url", content: "/" },
+      { title: "VY Enterprises Trichy | Areca Plate Manufacturer & Supplier" },
+      { name: "description", content: "VY Enterprises, Trichy — areca plate manufacturer & supplier of eco-friendly disposable products: areca cups, paper plates, paper cups, food containers & dining rolls. Wholesale & custom branding." },
+      { name: "keywords", content: "VY Enterprises, VY Enterprises Trichy, areca plate manufacturer, areca plate supplier, eco-friendly disposable products, paper plates, paper cups, areca cups, food containers, dining rolls, Tiruchirappalli" },
+      { property: "og:title", content: "VY Enterprises Trichy | Areca Plate Manufacturer & Supplier" },
+      { property: "og:description", content: "Eco-friendly disposable products from Trichy — areca plates & cups, paper plates & cups, food containers and dining rolls. Wholesale, retail and custom branding." },
+      { property: "og:url", content: "https://vyenterprises.in/" },
+      { property: "og:image", content: "https://vyenterprises.in/og-vy-enterprises.jpg" },
+      { name: "twitter:title", content: "VY Enterprises Trichy | Areca Plate Manufacturer & Supplier" },
+      { name: "twitter:description", content: "Eco-friendly disposable products from Trichy — areca plates & cups, paper plates & cups, food containers and dining rolls." },
+      { name: "twitter:image", content: "https://vyenterprises.in/og-vy-enterprises.jpg" },
     ],
     links: [
-      { rel: "canonical", href: "/" },
+      { rel: "canonical", href: "https://vyenterprises.in/" },
       { rel: "preload", as: "image", href: HERO_SLIDES[0].src, fetchpriority: "high" },
     ],
+
     scripts: [
       {
         type: "application/ld+json",
@@ -165,12 +171,21 @@ export const Route = createFileRoute("/")({
           "@graph": [
             {
               "@type": "Organization",
-              "@id": "https://vy-enterprises.lovable.app/#organization",
+              "@id": "https://vyenterprises.in/#organization",
               name: "VY Enterprises",
-              url: "https://vy-enterprises.lovable.app/",
+              alternateName: "VY Enterprises Trichy",
+              url: "https://vyenterprises.in/",
+              logo: {
+                "@type": "ImageObject",
+                url: "https://vyenterprises.in/vy-logo.jpg",
+              },
+              image: "https://vyenterprises.in/og-vy-enterprises.jpg",
+              description:
+                "Areca plate manufacturer and supplier of eco-friendly disposable products — areca plates & cups, paper plates & cups, food containers and dining rolls.",
               telephone: ["+918508657377", "+919385712098"],
               email: "business@vyenterprises.in",
               foundingDate: "2021",
+
               address: {
                 "@type": "PostalAddress",
                 streetAddress: "No.27 Raman Nagar, South Ramalinga Nagar",
@@ -182,19 +197,23 @@ export const Route = createFileRoute("/")({
             },
             {
               "@type": "WebSite",
-              "@id": "https://vy-enterprises.lovable.app/#website",
-              url: "https://vy-enterprises.lovable.app/",
+              "@id": "https://vyenterprises.in/#website",
+              url: "https://vyenterprises.in/",
               name: "VY Enterprises",
-              publisher: { "@id": "https://vy-enterprises.lovable.app/#organization" },
+              publisher: { "@id": "https://vyenterprises.in/#organization" },
             },
             {
               "@type": "LocalBusiness",
-              "@id": "https://vy-enterprises.lovable.app/#localbusiness",
+              "@id": "https://vyenterprises.in/#localbusiness",
               name: "VY Enterprises",
               description:
                 "Manufacturer and supplier of eco-friendly disposable areca plates, paper cups, food containers and dining rolls in Tiruchirappalli.",
-              url: "https://vy-enterprises.lovable.app/",
+              url: "https://vyenterprises.in/",
+              logo: "https://vyenterprises.in/vy-logo.jpg",
+              image: "https://vyenterprises.in/og-vy-enterprises.jpg",
+              priceRange: "₹₹",
               telephone: "+918508657377",
+
               email: "business@vyenterprises.in",
               address: {
                 "@type": "PostalAddress",
@@ -208,7 +227,7 @@ export const Route = createFileRoute("/")({
             },
             {
               "@type": "FAQPage",
-              "@id": "https://vy-enterprises.lovable.app/#faq",
+              "@id": "https://vyenterprises.in/#faq",
               mainEntity: FAQ_ITEMS.map(([q, a]) => ({
                 "@type": "Question",
                 name: q,
@@ -474,7 +493,7 @@ function AwardShowcase() {
             <motion.img
               src={crestLogo}
               alt="VY Enterprises gold crest logo"
-              loading="lazy"
+              loading="lazy" decoding="async"
               className="h-28 w-28 shrink-0 rounded-2xl object-contain shadow-elegant ring-1 ring-primary/20 sm:h-40 sm:w-40 md:h-48 md:w-48 lg:h-56 lg:w-56 self-end mt-4"
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}

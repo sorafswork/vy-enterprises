@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Leaf, Flame, Timer, ShieldCheck, Recycle, ArrowRight, Check } from "lucide-react";
 
-const CANONICAL = "https://vy-enterprises.lovable.app/blog/palm-leaf-vs-bamboo-vs-bagasse";
+const CANONICAL = "https://vyenterprises.in/blog/palm-leaf-vs-bamboo-vs-bagasse";
 const TITLE = "Palm Leaf vs Bamboo vs Bagasse Plates: Which Is Best?";
 const DESCRIPTION =
   "Compare palm leaf, bamboo, and bagasse disposable plates on durability, heat resistance, composting time, and cost to pick the right eco-friendly dinnerware.";
@@ -15,9 +15,13 @@ export const Route = createFileRoute("/blog/palm-leaf-vs-bamboo-vs-bagasse")({
       { property: "og:description", content: DESCRIPTION },
       { property: "og:type", content: "article" },
       { property: "og:url", content: CANONICAL },
+      { property: "og:image", content: "https://vyenterprises.in/og-vy-enterprises.jpg" },
+      { name: "keywords", content: "palm leaf plates, areca plates, bamboo plates, bagasse plates, eco-friendly disposable products, areca plate manufacturer" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: TITLE },
       { name: "twitter:description", content: DESCRIPTION },
+      { name: "twitter:image", content: "https://vyenterprises.in/og-vy-enterprises.jpg" },
+
     ],
     links: [{ rel: "canonical", href: CANONICAL }],
     scripts: [
