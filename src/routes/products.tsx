@@ -441,7 +441,7 @@ function ProductsPage() {
             >
               <img
                 src={p.image}
-                alt={p.title}
+                alt={`${p.title} — ${p.category} by VY Enterprises, areca plate manufacturer & supplier in Trichy`}
                 loading="lazy"
                 className="h-auto w-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
@@ -574,7 +574,7 @@ function ProductsPage() {
               >
                 <X className="h-4 w-4" />
               </button>
-              <img src={lightbox.image} alt={lightbox.title} className="max-h-[70vh] w-full object-contain bg-[color:var(--beige)]" />
+              <img src={lightbox.image} alt={`${lightbox.title} — eco-friendly ${lightbox.category} from VY Enterprises Trichy`} className="max-h-[70vh] w-full object-contain bg-[color:var(--beige)]" />
               <div className="p-6">
                 <div className="text-xs uppercase tracking-widest text-[color:var(--forest)]">{lightbox.category}</div>
                 <h4 className="mt-1 font-display text-2xl font-bold">{lightbox.title}</h4>
@@ -621,7 +621,7 @@ function ProductCard({ product, index, onView }: { product: Product; index: numb
         {product.poster ? (
           <motion.img
             src={product.image}
-            alt={product.title}
+            alt={`${product.title} — eco-friendly ${product.category} from VY Enterprises Trichy`}
             loading="lazy"
             className="h-full w-full object-contain"
             initial={{ scale: 1 }}
@@ -631,7 +631,7 @@ function ProductCard({ product, index, onView }: { product: Product; index: numb
         ) : (
           <img
             src={product.image}
-            alt={product.title}
+            alt={`${product.title} — eco-friendly ${product.category} from VY Enterprises Trichy`}
             loading="lazy"
             className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
           />

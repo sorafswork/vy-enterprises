@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Leaf, Flame, Timer, ShieldCheck, Recycle, ArrowRight, Check } from "lucide-react";
 
-const CANONICAL = "https://vy-enterprises.lovable.app/blog/palm-leaf-vs-bamboo-vs-bagasse";
+const CANONICAL = "https://vyenterprises.in/blog/palm-leaf-vs-bamboo-vs-bagasse";
 const TITLE = "Palm Leaf vs Bamboo vs Bagasse Plates: Which Is Best?";
 const DESCRIPTION =
   "Compare palm leaf, bamboo, and bagasse disposable plates on durability, heat resistance, composting time, and cost to pick the right eco-friendly dinnerware.";
