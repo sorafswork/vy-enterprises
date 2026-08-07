@@ -12,17 +12,17 @@ const inquirySchema = z.object({
 export const submitInquiry = createServerFn({ method: "POST" })
   .inputValidator((data: unknown) => inquirySchema.parse(data))
   .handler(async ({ data }) => {
-    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-    const { error } = await supabaseAdmin.from("inquiries").insert({
-      name: data.name,
-      phone: data.phone,
-      email: data.email ? data.email : null,
-      business_type: data.businessType ?? null,
-      requirement: data.requirement ?? null,
-    });
-    if (error) {
-      console.error("[inquiries] insert failed", error.message);
-      throw new Error("Could not save your inquiry. Please try again or reach us on WhatsApp.");
-    }
-    return { ok: true as const };
+    const apiKey = process.env["LOVABLE_API_KEY"] ?? "";
+    const { sendInquiryEmails } = await import("@/lib/inquiry-email.server");
+    const emailSent = await sendInquiryEmails(
+      {
+        name: data.name,
+        phone: data.phone,
+        email: data.email || undefined,
+        businessType: data.businessType || undefined,
+        requirement: data.requirement || undefined,
+      },
+      apiKey,
+    );
+    return { ok: true as const, emailSent };
   });
