@@ -147,16 +147,22 @@ const FAQ_ITEMS: [string, string][] = [
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "VY Enterprises — Eco-Friendly Disposables in Trichy" },
-      { name: "description", content: "Areca plates, paper cups, food containers & dining rolls. Wholesale, retail & custom branding from Tiruchirappalli. Door delivery across Tamil Nadu." },
-      { property: "og:title", content: "VY Enterprises — Premium Eco-Friendly Disposables" },
-      { property: "og:description", content: "Sustainable disposables for restaurants, hotels, caterers & retailers. Since 2021." },
-      { property: "og:url", content: "/" },
+      { title: "VY Enterprises Trichy | Areca Plate Manufacturer & Supplier" },
+      { name: "description", content: "VY Enterprises, Trichy — areca plate manufacturer & supplier of eco-friendly disposable products: areca cups, paper plates, paper cups, food containers & dining rolls. Wholesale & custom branding." },
+      { name: "keywords", content: "VY Enterprises, VY Enterprises Trichy, areca plate manufacturer, areca plate supplier, eco-friendly disposable products, paper plates, paper cups, areca cups, food containers, dining rolls, Tiruchirappalli" },
+      { property: "og:title", content: "VY Enterprises Trichy | Areca Plate Manufacturer & Supplier" },
+      { property: "og:description", content: "Eco-friendly disposable products from Trichy — areca plates & cups, paper plates & cups, food containers and dining rolls. Wholesale, retail and custom branding." },
+      { property: "og:url", content: "https://vyenterprises.in/" },
+      { property: "og:image", content: "https://vyenterprises.in/og-vy-enterprises.jpg" },
+      { name: "twitter:title", content: "VY Enterprises Trichy | Areca Plate Manufacturer & Supplier" },
+      { name: "twitter:description", content: "Eco-friendly disposable products from Trichy — areca plates & cups, paper plates & cups, food containers and dining rolls." },
+      { name: "twitter:image", content: "https://vyenterprises.in/og-vy-enterprises.jpg" },
     ],
     links: [
-      { rel: "canonical", href: "/" },
+      { rel: "canonical", href: "https://vyenterprises.in/" },
       { rel: "preload", as: "image", href: HERO_SLIDES[0].src, fetchpriority: "high" },
     ],
+
     scripts: [
       {
         type: "application/ld+json",
