@@ -173,10 +173,19 @@ export const Route = createFileRoute("/")({
               "@type": "Organization",
               "@id": "https://vyenterprises.in/#organization",
               name: "VY Enterprises",
+              alternateName: "VY Enterprises Trichy",
               url: "https://vyenterprises.in/",
+              logo: {
+                "@type": "ImageObject",
+                url: "https://vyenterprises.in/vy-logo.jpg",
+              },
+              image: "https://vyenterprises.in/og-vy-enterprises.jpg",
+              description:
+                "Areca plate manufacturer and supplier of eco-friendly disposable products — areca plates & cups, paper plates & cups, food containers and dining rolls.",
               telephone: ["+918508657377", "+919385712098"],
               email: "business@vyenterprises.in",
               foundingDate: "2021",
+
               address: {
                 "@type": "PostalAddress",
                 streetAddress: "No.27 Raman Nagar, South Ramalinga Nagar",
