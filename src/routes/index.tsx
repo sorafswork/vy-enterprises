@@ -1064,25 +1064,45 @@ function InquiryForm() {
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const fd = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+    const values = {
+      name: String(fd.get("name") ?? "").trim(),
+      phone: String(fd.get("phone") ?? "").trim(),
+      email: String(fd.get("email") ?? "").trim(),
+      businessType: String(fd.get("businessType") ?? "").trim(),
+      requirement: String(fd.get("requirement") ?? "").trim(),
+    };
+
+    if (!values.name || values.phone.length < 6) {
+      setStatus("error");
+      setMessage("Please enter your name and a valid phone number.");
+      return;
+    }
+
     setStatus("sending");
     setMessage("");
     try {
-      await send({
-        data: {
-          name: String(fd.get("name") ?? ""),
-          phone: String(fd.get("phone") ?? ""),
-          email: String(fd.get("email") ?? ""),
-          businessType: String(fd.get("businessType") ?? ""),
-          requirement: String(fd.get("requirement") ?? ""),
-        },
-      });
+      await send({ data: values });
+
+      // WhatsApp Business notification: open WhatsApp with the full inquiry pre-filled
+      const waText = [
+        "New inquiry from vyenterprises.in",
+        `Name: ${values.name}`,
+        `Phone: ${values.phone}`,
+        `Email: ${values.email || "-"}`,
+        `Business type: ${values.businessType || "-"}`,
+        `Requirement: ${values.requirement || "-"}`,
+      ].join("\n");
+      window.open(`https://wa.me/918508657377?text=${encodeURIComponent(waText)}`, "_blank", "noopener");
+
       setStatus("sent");
-      setMessage("Thanks! Your inquiry is with us — we'll get back with a quote shortly.");
-      e.currentTarget.reset();
+      setMessage("Thank you! Your inquiry has been submitted successfully. Our team will contact you shortly.");
+      form.reset();
     } catch (err) {
+      console.error("[inquiry] submit failed", err);
       setStatus("error");
-      setMessage(err instanceof Error ? err.message : "Something went wrong. Please try WhatsApp instead.");
+      setMessage("Sorry, we couldn't submit your inquiry. Please try again or reach us on WhatsApp.");
     }
   }
 
