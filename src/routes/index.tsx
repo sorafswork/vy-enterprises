@@ -70,7 +70,7 @@ function HeroSlider() {
                 aria-hidden="true"
                 width={200}
                 height={200}
-                loading="lazy"
+                loading="lazy" decoding="async"
                 decoding="async"
                 className="absolute h-40 w-40 rounded-3xl object-cover opacity-0"
               />
@@ -493,7 +493,7 @@ function AwardShowcase() {
             <motion.img
               src={crestLogo}
               alt="VY Enterprises gold crest logo"
-              loading="lazy"
+              loading="lazy" decoding="async"
               className="h-28 w-28 shrink-0 rounded-2xl object-contain shadow-elegant ring-1 ring-primary/20 sm:h-40 sm:w-40 md:h-48 md:w-48 lg:h-56 lg:w-56 self-end mt-4"
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
@@ -1063,7 +1063,7 @@ function Contact() {
                 title="Map"
                 src="https://www.google.com/maps?q=Raman+Nagar+South+Ramalinga+Nagar+Trichy+620017&output=embed"
                 className="h-56 w-full"
-                loading="lazy"
+                loading="lazy" decoding="async"
               />
             </div>
           </div>

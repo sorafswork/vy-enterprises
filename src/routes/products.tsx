@@ -442,7 +442,7 @@ function ProductsPage() {
               <img
                 src={p.image}
                 alt={`${p.title} — ${p.category} by VY Enterprises, areca plate manufacturer & supplier in Trichy`}
-                loading="lazy"
+                loading="lazy" decoding="async"
                 className="h-auto w-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
@@ -622,7 +622,7 @@ function ProductCard({ product, index, onView }: { product: Product; index: numb
           <motion.img
             src={product.image}
             alt={`${product.title} — eco-friendly ${product.category} from VY Enterprises Trichy`}
-            loading="lazy"
+            loading="lazy" decoding="async"
             className="h-full w-full object-contain"
             initial={{ scale: 1 }}
             animate={{ y: [0, -10, 0, 10, 0], scale: [1, 1.03, 1] }}
@@ -632,7 +632,7 @@ function ProductCard({ product, index, onView }: { product: Product; index: numb
           <img
             src={product.image}
             alt={`${product.title} — eco-friendly ${product.category} from VY Enterprises Trichy`}
-            loading="lazy"
+            loading="lazy" decoding="async"
             className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
           />
         )}
