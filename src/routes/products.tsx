@@ -39,15 +39,21 @@ import nKraftRoll from "@/assets/img/n-kraft-dining-roll.webp";
 export const Route = createFileRoute("/products")({
   head: () => ({
     meta: [
-      { title: "Products — VY Enterprises Eco-Friendly Disposables" },
-      { name: "description", content: "Explore premium eco-friendly disposables including areca plates, paper cups, food containers, and dining rolls from VY Enterprises." },
-      { property: "og:title", content: "Products — VY Enterprises Eco-Friendly Disposables" },
-      { property: "og:description", content: "Premium eco-friendly disposables: areca plates, paper cups, food containers & dining rolls. Wholesale & custom branding." },
+      { title: "Areca Plates, Paper Cups & Food Containers | VY Enterprises" },
+      { name: "description", content: "Product collection from VY Enterprises Trichy — areca plates, areca cups, paper plates, paper cups, food containers & dining rolls. Areca plate manufacturer & supplier for wholesale and custom branding." },
+      { name: "keywords", content: "areca plate manufacturer, areca plate supplier, areca cups, paper plates, paper cups, food containers, dining rolls, eco-friendly disposable products, VY Enterprises Trichy" },
+      { property: "og:title", content: "Areca Plates, Paper Cups & Food Containers | VY Enterprises" },
+      { property: "og:description", content: "Premium eco-friendly disposables: areca plates & cups, paper plates & cups, food containers and dining rolls. Wholesale & custom branding from Trichy." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://vyenterprises.in/products" },
       { property: "og:image", content: `https://vyenterprises.in${award}` },
+      { name: "twitter:title", content: "Areca Plates, Paper Cups & Food Containers | VY Enterprises" },
+      { name: "twitter:description", content: "Premium eco-friendly disposables from VY Enterprises, Trichy — wholesale & custom branding." },
       { name: "twitter:image", content: `https://vyenterprises.in${award}` },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/products" }],
+    links: [{ rel: "canonical", href: "https://vyenterprises.in/products" }],
+
     scripts: [
       {
         type: "application/ld+json",
