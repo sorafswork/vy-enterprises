@@ -177,7 +177,9 @@ export const Route = createFileRoute("/")({
               url: "https://vyenterprises.in/",
               logo: {
                 "@type": "ImageObject",
-                url: "https://vyenterprises.in/vy-logo.jpg",
+                url: "https://vyenterprises.in/logo-vy-enterprises.png",
+                width: 512,
+                height: 512,
               },
               image: "https://vyenterprises.in/og-vy-enterprises.jpg",
               description:
@@ -185,6 +187,17 @@ export const Route = createFileRoute("/")({
               telephone: ["+918508657377", "+919385712098"],
               email: "business@vyenterprises.in",
               foundingDate: "2021",
+              contactPoint: [
+                {
+                  "@type": "ContactPoint",
+                  telephone: "+918508657377",
+                  email: "business@vyenterprises.in",
+                  contactType: "sales",
+                  areaServed: "IN",
+                  availableLanguage: ["en", "ta"],
+                },
+              ],
+
 
               address: {
                 "@type": "PostalAddress",
