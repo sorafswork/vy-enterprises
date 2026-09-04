@@ -23,6 +23,13 @@ import slideWaterCup from "@/assets/img/slide-water-cup.webp";
 import slideDinningRoll from "@/assets/img/slide-dinning-roll.webp";
 import slideVyPack1 from "@/assets/img/slide-vy-pack-1.jpg";
 import slideVybPack from "@/assets/img/slide-vyb-pack.jpg";
+import homePaakkuPlates from "@/assets/products-home/paakku-areca-plates.webp.asset.json";
+import homePaakkuCups from "@/assets/products-home/paakku-cups.webp.asset.json";
+import homePaperPlates from "@/assets/products-home/paper-plates.webp.asset.json";
+import homePaperCups from "@/assets/products-home/paper-cups.webp.asset.json";
+import homeYellowTeaCups from "@/assets/products-home/yellow-tea-cups.webp.asset.json";
+import homeFoodContainers from "@/assets/products-home/paakku-food-containers.webp.asset.json";
+import homeDiningRolls from "@/assets/products-home/dining-rolls.webp.asset.json";
 
 const HERO_SLIDES = [
   { src: slideArecaPlates, label: "Paakku Areca Plates" },
@@ -667,13 +674,13 @@ function Awards() {
 /* ---------- Products ---------- */
 
 const productCatalog = [
-  { id: "areca-plates", name: "Paakku (Areca) Plates", sizes: ["12\"", "10\"", "8\"", "5.5\"", "3\""], desc: "Naturally fallen areca leaf, hot-pressed. Sturdy, elegant, 100% compostable.", icon: UtensilsCrossed },
-  { id: "areca-cups", name: "Paakku Cups", sizes: ["Standard"], desc: "Natural biodegradable cups for a refined table setting.", icon: Coffee },
-  { id: "paper-plates", name: "Paper Plates", sizes: ["12\"", "10\"", "9\"", "8\"", "7\"", "6\"", "180 GSM"], desc: "Food-safe, heavy-duty 180 GSM paper plates for every occasion.", icon: UtensilsCrossed },
-  { id: "paper-cups", name: "Paper Cups", sizes: ["90 ml", "110 ml", "150 ml", "210 ml", "250 ml"], desc: "Leak-proof paper cups for tea, coffee and cold beverages.", icon: Coffee },
-  { id: "yellow-tea", name: "Yellow Tea Cups", sizes: ["90 ml"], desc: "Classic yellow tea cups for tea shops and caterers.", icon: Coffee },
-  { id: "containers", name: "Paakku Food Containers", sizes: ["Takeaway"], desc: "Eco-friendly takeaway containers made from areca leaf.", icon: Package },
-  { id: "dining-rolls", name: "Dining Rolls", sizes: ["Sold by KG"], desc: "Food-grade dining rolls available by the kilogram for bulk needs.", icon: Boxes },
+  { id: "areca-plates", name: "Paakku (Areca) Plates", sizes: ["12\"", "10\"", "8\"", "5.5\"", "3\""], desc: "Naturally fallen areca leaf, hot-pressed. Sturdy, elegant, 100% compostable.", icon: UtensilsCrossed, image: homePaakkuPlates.url },
+  { id: "areca-cups", name: "Paakku Cups", sizes: ["Standard"], desc: "Natural biodegradable cups for a refined table setting.", icon: Coffee, image: homePaakkuCups.url },
+  { id: "paper-plates", name: "Paper Plates", sizes: ["12\"", "10\"", "9\"", "8\"", "7\"", "6\"", "180 GSM"], desc: "Food-safe, heavy-duty 180 GSM paper plates for every occasion.", icon: UtensilsCrossed, image: homePaperPlates.url },
+  { id: "paper-cups", name: "Paper Cups", sizes: ["90 ml", "110 ml", "150 ml", "210 ml", "250 ml"], desc: "Leak-proof paper cups for tea, coffee and cold beverages.", icon: Coffee, image: homePaperCups.url },
+  { id: "yellow-tea", name: "Yellow Tea Cups", sizes: ["90 ml"], desc: "Classic yellow tea cups for tea shops and caterers.", icon: Coffee, image: homeYellowTeaCups.url },
+  { id: "containers", name: "Paakku Food Containers", sizes: ["Takeaway"], desc: "Eco-friendly takeaway containers made from areca leaf.", icon: Package, image: homeFoodContainers.url },
+  { id: "dining-rolls", name: "Dining Rolls", sizes: ["Sold by KG"], desc: "Food-grade dining rolls available by the kilogram for bulk needs.", icon: Boxes, image: homeDiningRolls.url },
 ];
 
 function Products() {
@@ -699,6 +706,15 @@ function Products() {
                 whileHover={{ y: -6 }}
                 className="group relative overflow-hidden rounded-3xl glass p-6 shadow-elegant"
               >
+                <img
+                  src={p.image}
+                  alt={`${p.name} eco-friendly disposable product from VY Enterprises`}
+                  width={960}
+                  height={768}
+                  loading="lazy"
+                  decoding="async"
+                  className="mb-6 aspect-[5/4] w-full rounded-2xl object-contain"
+                />
                 <div className="flex items-start justify-between">
                   <div className="grid h-12 w-12 place-items-center rounded-2xl gradient-forest text-primary-foreground shadow-elegant">
                     <Icon className="h-5 w-5" />
