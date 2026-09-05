@@ -1266,6 +1266,7 @@ function Loader() {
         playsInline
         preload="auto"
         onTimeUpdate={(event) => setShowNameScene(event.currentTarget.currentTime >= 8.1)}
+        onSeeked={(event) => setShowNameScene(event.currentTarget.currentTime >= 8.1)}
         onEnded={finish}
         onError={finish}
         aria-label="VY Enterprises eco-friendly products and services introduction"
