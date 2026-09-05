@@ -30,6 +30,7 @@ import homePaperCups from "@/assets/products-home/paper-cups.webp.asset.json";
 import homeYellowTeaCups from "@/assets/products-home/yellow-tea-cups.webp.asset.json";
 import homeFoodContainers from "@/assets/products-home/paakku-food-containers.webp.asset.json";
 import homeDiningRolls from "@/assets/products-home/dining-rolls.webp.asset.json";
+import introVideo from "@/assets/vy-enterprises-intro.mp4.asset.json";
 
 const HERO_SLIDES = [
   { src: slideArecaPlates, label: "Paakku Areca Plates" },
@@ -1238,16 +1239,42 @@ function Footer() {
 
 function Loader() {
   const [gone, setGone] = useState(false);
-  useEffect(() => { const t = setTimeout(() => setGone(true), 900); return () => clearTimeout(t); }, []);
+  useEffect(() => {
+    if (window.sessionStorage.getItem("vy-intro-seen")) setGone(true);
+  }, []);
+
+  const finish = () => {
+    window.sessionStorage.setItem("vy-intro-seen", "true");
+    setGone(true);
+  };
+
   if (gone) return null;
   return (
     <motion.div
-      className="fixed inset-0 z-[100] grid place-items-center bg-background"
-      initial={{ opacity: 1 }} animate={{ opacity: 0 }} transition={{ delay: 0.7, duration: 0.5 }}
-      onAnimationComplete={() => setGone(true)}
+      className="fixed inset-0 z-[100] overflow-hidden bg-forest"
+      initial={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
     >
-      <motion.img src={logo} alt="VY" className="h-24 w-24 rounded-full object-cover ring-1 ring-primary/30 shadow-elegant"
-        initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.5 }} />
+      <video
+        src={introVideo.url}
+        autoPlay
+        muted
+        playsInline
+        preload="auto"
+        onEnded={finish}
+        onError={finish}
+        aria-label="VY Enterprises eco-friendly products and services introduction"
+        className="h-full w-full object-cover"
+      />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-forest/65 via-transparent to-forest/20" />
+      <button
+        type="button"
+        onClick={finish}
+        className="absolute right-5 top-5 rounded-full border border-primary-foreground/35 bg-forest/65 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-primary-foreground shadow-elegant sm:right-8 sm:top-8"
+        aria-label="Skip introduction"
+      >
+        Skip intro
+      </button>
     </motion.div>
   );
 }
