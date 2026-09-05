@@ -31,6 +31,7 @@ import homeYellowTeaCups from "@/assets/products-home/yellow-tea-cups.webp.asset
 import homeFoodContainers from "@/assets/products-home/paakku-food-containers.webp.asset.json";
 import homeDiningRolls from "@/assets/products-home/dining-rolls.webp.asset.json";
 import introVideo from "@/assets/vy-enterprises-intro.mp4.asset.json";
+import introNameBackground from "@/assets/vy-enterprises-name-background.mp4.asset.json";
 import introPoster from "@/assets/vy-intro-poster.jpg";
 
 const HERO_SLIDES = [
@@ -1240,6 +1241,7 @@ function Footer() {
 
 function Loader() {
   const [gone, setGone] = useState(false);
+  const [showNameScene, setShowNameScene] = useState(false);
   useEffect(() => {
     if (window.sessionStorage.getItem("vy-intro-seen")) setGone(true);
   }, []);
@@ -1263,11 +1265,41 @@ function Loader() {
         muted
         playsInline
         preload="auto"
+        onTimeUpdate={(event) => setShowNameScene(event.currentTarget.currentTime >= 8.1)}
+        onSeeked={(event) => setShowNameScene(event.currentTarget.currentTime >= 8.1)}
         onEnded={finish}
         onError={finish}
         aria-label="VY Enterprises eco-friendly products and services introduction"
         className="h-full w-full object-cover"
       />
+      {showNameScene && (
+        <motion.div
+          className="absolute inset-0"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.45 }}
+        >
+          <video
+            src={introNameBackground.url}
+            autoPlay
+            muted
+            playsInline
+            preload="auto"
+            aria-hidden="true"
+            className="h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-forest/35" />
+          <motion.div
+            className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center text-primary-foreground"
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.15, duration: 0.6 }}
+          >
+            <div className="font-display text-4xl font-semibold sm:text-6xl lg:text-7xl">VY Enterprises</div>
+            <div className="mt-3 text-xs font-semibold uppercase tracking-[0.28em] sm:text-sm">Premium Eco-Friendly Products</div>
+          </motion.div>
+        </motion.div>
+      )}
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-forest/65 via-transparent to-forest/20" />
       <button
         type="button"
