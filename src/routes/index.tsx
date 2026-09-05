@@ -31,6 +31,7 @@ import homeYellowTeaCups from "@/assets/products-home/yellow-tea-cups.webp.asset
 import homeFoodContainers from "@/assets/products-home/paakku-food-containers.webp.asset.json";
 import homeDiningRolls from "@/assets/products-home/dining-rolls.webp.asset.json";
 import introVideo from "@/assets/vy-enterprises-intro.mp4.asset.json";
+import introPoster from "@/assets/vy-intro-poster.jpg";
 
 const HERO_SLIDES = [
   { src: slideArecaPlates, label: "Paakku Areca Plates" },
@@ -1257,6 +1258,7 @@ function Loader() {
     >
       <video
         src={introVideo.url}
+        poster={introPoster}
         autoPlay
         muted
         playsInline
