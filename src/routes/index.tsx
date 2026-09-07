@@ -1246,10 +1246,6 @@ function Loader() {
   const nameVideoRef = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {
-    if (window.sessionStorage.getItem("vy-intro-seen")) {
-      setGone(true);
-      return;
-    }
     const timers: ReturnType<typeof setTimeout>[] = [];
     const el = videoRef.current;
     if (el) {
@@ -1261,7 +1257,6 @@ function Loader() {
           timers.push(setTimeout(() => setShowNameScene(true), 2200));
           timers.push(
             setTimeout(() => {
-              window.sessionStorage.setItem("vy-intro-seen", "true");
               setGone(true);
             }, 6500),
           );
@@ -1281,7 +1276,6 @@ function Loader() {
   }, [showNameScene]);
 
   const finish = () => {
-    window.sessionStorage.setItem("vy-intro-seen", "true");
     setGone(true);
   };
 
