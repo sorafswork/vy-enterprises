@@ -1242,9 +1242,43 @@ function Footer() {
 function Loader() {
   const [gone, setGone] = useState(false);
   const [showNameScene, setShowNameScene] = useState(false);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const nameVideoRef = useRef<HTMLVideoElement | null>(null);
+
   useEffect(() => {
-    if (window.sessionStorage.getItem("vy-intro-seen")) setGone(true);
+    if (window.sessionStorage.getItem("vy-intro-seen")) {
+      setGone(true);
+      return;
+    }
+    const timers: ReturnType<typeof setTimeout>[] = [];
+    const el = videoRef.current;
+    if (el) {
+      el.muted = true;
+      const attempt = el.play();
+      if (attempt && typeof attempt.catch === "function") {
+        attempt.catch(() => {
+          // autoplay blocked (e.g. inside preview iframe): run a timed fallback sequence
+          timers.push(setTimeout(() => setShowNameScene(true), 2200));
+          timers.push(
+            setTimeout(() => {
+              window.sessionStorage.setItem("vy-intro-seen", "true");
+              setGone(true);
+            }, 6500),
+          );
+        });
+      }
+    }
+    return () => timers.forEach(clearTimeout);
   }, []);
+
+  useEffect(() => {
+    if (!showNameScene) return;
+    const el = nameVideoRef.current;
+    if (el) {
+      el.muted = true;
+      void el.play().catch(() => {});
+    }
+  }, [showNameScene]);
 
   const finish = () => {
     window.sessionStorage.setItem("vy-intro-seen", "true");
@@ -1259,6 +1293,7 @@ function Loader() {
       exit={{ opacity: 0 }}
     >
       <video
+        ref={videoRef}
         src={introVideo.url}
         poster={introPoster}
         autoPlay
@@ -1272,6 +1307,7 @@ function Loader() {
         aria-label="VY Enterprises eco-friendly products and services introduction"
         className="h-full w-full object-cover"
       />
+
       {showNameScene && (
         <motion.div
           className="absolute inset-0"
@@ -1280,6 +1316,7 @@ function Loader() {
           transition={{ duration: 0.45 }}
         >
           <video
+            ref={nameVideoRef}
             src={introNameBackground.url}
             autoPlay
             muted
