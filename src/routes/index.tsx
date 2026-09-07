@@ -1316,6 +1316,7 @@ function Loader() {
           transition={{ duration: 0.45 }}
         >
           <video
+            ref={nameVideoRef}
             src={introNameBackground.url}
             autoPlay
             muted
