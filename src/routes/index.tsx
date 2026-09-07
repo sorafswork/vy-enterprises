@@ -30,8 +30,6 @@ import homePaperCups from "@/assets/products-home/paper-cups.webp.asset.json";
 import homeYellowTeaCups from "@/assets/products-home/yellow-tea-cups.webp.asset.json";
 import homeFoodContainers from "@/assets/products-home/paakku-food-containers.webp.asset.json";
 import homeDiningRolls from "@/assets/products-home/dining-rolls.webp.asset.json";
-import introVideo from "@/assets/vy-enterprises-intro.mp4.asset.json";
-import introNameBackground from "@/assets/vy-enterprises-name-background.mp4.asset.json";
 import introPoster from "@/assets/vy-intro-poster.jpg";
 
 const HERO_SLIDES = [
@@ -1246,10 +1244,6 @@ function Loader() {
   const nameVideoRef = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {
-    if (window.sessionStorage.getItem("vy-intro-seen")) {
-      setGone(true);
-      return;
-    }
     const timers: ReturnType<typeof setTimeout>[] = [];
     const el = videoRef.current;
     if (el) {
@@ -1261,7 +1255,6 @@ function Loader() {
           timers.push(setTimeout(() => setShowNameScene(true), 2200));
           timers.push(
             setTimeout(() => {
-              window.sessionStorage.setItem("vy-intro-seen", "true");
               setGone(true);
             }, 6500),
           );
@@ -1281,7 +1274,6 @@ function Loader() {
   }, [showNameScene]);
 
   const finish = () => {
-    window.sessionStorage.setItem("vy-intro-seen", "true");
     setGone(true);
   };
 
@@ -1294,7 +1286,6 @@ function Loader() {
     >
       <video
         ref={videoRef}
-        src={introVideo.url}
         poster={introPoster}
         autoPlay
         muted
@@ -1306,7 +1297,10 @@ function Loader() {
         onError={finish}
         aria-label="VY Enterprises eco-friendly products and services introduction"
         className="h-full w-full object-cover"
-      />
+      >
+        <source src="/videos/vy-enterprises-intro.webm" type="video/webm" />
+        <source src="/videos/vy-enterprises-intro.mp4" type="video/mp4" />
+      </video>
 
       {showNameScene && (
         <motion.div
@@ -1317,14 +1311,16 @@ function Loader() {
         >
           <video
             ref={nameVideoRef}
-            src={introNameBackground.url}
             autoPlay
             muted
             playsInline
             preload="auto"
             aria-hidden="true"
             className="h-full w-full object-cover"
-          />
+          >
+            <source src="/videos/vy-enterprises-name-background.webm" type="video/webm" />
+            <source src="/videos/vy-enterprises-name-background.mp4" type="video/mp4" />
+          </video>
           <div className="absolute inset-0 bg-forest/35" />
           <motion.div
             className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center text-primary-foreground"
