@@ -1286,7 +1286,6 @@ function Loader() {
     >
       <video
         ref={videoRef}
-        src="/videos/vy-enterprises-intro.mp4"
         poster={introPoster}
         autoPlay
         muted
@@ -1298,7 +1297,10 @@ function Loader() {
         onError={finish}
         aria-label="VY Enterprises eco-friendly products and services introduction"
         className="h-full w-full object-cover"
-      />
+      >
+        <source src="/videos/vy-enterprises-intro.webm" type="video/webm" />
+        <source src="/videos/vy-enterprises-intro.mp4" type="video/mp4" />
+      </video>
 
       {showNameScene && (
         <motion.div
@@ -1309,14 +1311,16 @@ function Loader() {
         >
           <video
             ref={nameVideoRef}
-            src="/videos/vy-enterprises-name-background.mp4"
             autoPlay
             muted
             playsInline
             preload="auto"
             aria-hidden="true"
             className="h-full w-full object-cover"
-          />
+          >
+            <source src="/videos/vy-enterprises-name-background.webm" type="video/webm" />
+            <source src="/videos/vy-enterprises-name-background.mp4" type="video/mp4" />
+          </video>
           <div className="absolute inset-0 bg-forest/35" />
           <motion.div
             className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center text-primary-foreground"
