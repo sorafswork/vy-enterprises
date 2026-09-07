@@ -30,8 +30,6 @@ import homePaperCups from "@/assets/products-home/paper-cups.webp.asset.json";
 import homeYellowTeaCups from "@/assets/products-home/yellow-tea-cups.webp.asset.json";
 import homeFoodContainers from "@/assets/products-home/paakku-food-containers.webp.asset.json";
 import homeDiningRolls from "@/assets/products-home/dining-rolls.webp.asset.json";
-import introVideo from "@/assets/vy-enterprises-intro.mp4.asset.json";
-import introNameBackground from "@/assets/vy-enterprises-name-background.mp4.asset.json";
 import introPoster from "@/assets/vy-intro-poster.jpg";
 
 const HERO_SLIDES = [
@@ -1288,7 +1286,7 @@ function Loader() {
     >
       <video
         ref={videoRef}
-        src={introVideo.url}
+        src="/videos/vy-enterprises-intro.mp4"
         poster={introPoster}
         autoPlay
         muted
@@ -1311,7 +1309,7 @@ function Loader() {
         >
           <video
             ref={nameVideoRef}
-            src={introNameBackground.url}
+            src="/videos/vy-enterprises-name-background.mp4"
             autoPlay
             muted
             playsInline
