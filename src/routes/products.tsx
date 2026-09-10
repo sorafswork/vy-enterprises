@@ -19,13 +19,21 @@ import paperCupPrinted from "@/assets/img/4.webp";
 import paperCupSonic from "@/assets/img/2.webp";
 
 // Newly attached posters
-import posterPaakkuPlate from "@/assets/img/paakku-plate-v9.webp";
-import posterPaakkuCup from "@/assets/img/paakku-cup-v9.webp";
-import posterPaperPlate from "@/assets/img/paper-plate-v9.webp";
-import posterPaperCup from "@/assets/img/paper-cup-v9.webp";
-import posterYellowTea from "@/assets/img/yellow-tea-v9.webp";
-import posterFoodContainer from "@/assets/img/food-container-v9.webp";
-import posterDiningRoll from "@/assets/img/dining-roll-v9.webp";
+import posterPaakkuPlateAsset from "@/assets/product-catalog-live/paakku-areca-plates.png.asset.json";
+import posterPaakkuCupAsset from "@/assets/product-catalog-live/paakku-cups.png.asset.json";
+import posterPaperPlateAsset from "@/assets/product-catalog-live/paper-plates.png.asset.json";
+import posterPaperCupAsset from "@/assets/product-catalog-live/paper-cups.png.asset.json";
+import posterYellowTeaAsset from "@/assets/product-catalog-live/yellow-tea-cups.png.asset.json";
+import posterFoodContainerAsset from "@/assets/product-catalog-live/paakku-food-containers.jpg.asset.json";
+import posterDiningRollAsset from "@/assets/product-catalog-live/dining-rolls.png.asset.json";
+
+const posterPaakkuPlate = posterPaakkuPlateAsset.url;
+const posterPaakkuCup = posterPaakkuCupAsset.url;
+const posterPaperPlate = posterPaperPlateAsset.url;
+const posterPaperCup = posterPaperCupAsset.url;
+const posterYellowTea = posterYellowTeaAsset.url;
+const posterFoodContainer = posterFoodContainerAsset.url;
+const posterDiningRoll = posterDiningRollAsset.url;
 import posterSnacksContainer from "@/assets/img/snacks-container-v3.jpg";
 import posterCirclePlate from "@/assets/img/circle-plate-v3.webp";
 import nBambooPlate from "@/assets/img/n-bamboo-compartment-plate.webp";
