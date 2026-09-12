@@ -18,22 +18,14 @@ import diningRoll from "@/assets/img/5.webp";
 import paperCupPrinted from "@/assets/img/4.webp";
 import paperCupSonic from "@/assets/img/2.webp";
 
-// Newly attached posters
-import posterPaakkuPlateAsset from "@/assets/product-catalog-live/paakku-areca-plates.png.asset.json";
-import posterPaakkuCupAsset from "@/assets/product-catalog-live/paakku-cups.png.asset.json";
-import posterPaperPlateAsset from "@/assets/product-catalog-live/paper-plates.png.asset.json";
-import posterPaperCupAsset from "@/assets/product-catalog-live/paper-cups.png.asset.json";
-import posterYellowTeaAsset from "@/assets/product-catalog-live/yellow-tea-cups.png.asset.json";
-import posterFoodContainerAsset from "@/assets/product-catalog-live/paakku-food-containers.jpg.asset.json";
-import posterDiningRollAsset from "@/assets/product-catalog-live/dining-rolls.png.asset.json";
-
-const posterPaakkuPlate = posterPaakkuPlateAsset.url;
-const posterPaakkuCup = posterPaakkuCupAsset.url;
-const posterPaperPlate = posterPaperPlateAsset.url;
-const posterPaperCup = posterPaperCupAsset.url;
-const posterYellowTea = posterYellowTeaAsset.url;
-const posterFoodContainer = posterFoodContainerAsset.url;
-const posterDiningRoll = posterDiningRollAsset.url;
+// Portable public paths are packaged by every deployment target.
+const posterPaakkuPlate = "/images/products/paakku-areca-plates-v10.webp";
+const posterPaakkuCup = "/images/products/paakku-cups-v10.webp";
+const posterPaperPlate = "/images/products/paper-plates-v10.webp";
+const posterPaperCup = "/images/products/paper-cups-v10.webp";
+const posterYellowTea = "/images/products/yellow-tea-cups-v10.webp";
+const posterFoodContainer = "/images/products/paakku-food-containers-v10.webp";
+const posterDiningRoll = "/images/products/dining-rolls-v10.webp";
 import posterSnacksContainer from "@/assets/img/snacks-container-v3.jpg";
 import posterCirclePlate from "@/assets/img/circle-plate-v3.webp";
 import nBambooPlate from "@/assets/img/n-bamboo-compartment-plate.webp";
