@@ -9,14 +9,26 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as ProductsRouteImport } from './routes/products'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ArecaLeafPlatesRouteImport } from './routes/areca-leaf-plates'
+import { Route as PaperPlatesRouteImport } from './routes/paper-plates'
+import { Route as ProductsRouteImport } from './routes/products'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as BlogPalmLeafVsBambooVsBagasseRouteImport } from './routes/blog.palm-leaf-vs-bamboo-vs-bagasse'
 
-const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ArecaLeafPlatesRoute = ArecaLeafPlatesRouteImport.update({
+  id: '/areca-leaf-plates',
+  path: '/areca-leaf-plates',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PaperPlatesRoute = PaperPlatesRouteImport.update({
+  id: '/paper-plates',
+  path: '/paper-plates',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProductsRoute = ProductsRouteImport.update({
@@ -24,9 +36,9 @@ const ProductsRoute = ProductsRouteImport.update({
   path: '/products',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlogPalmLeafVsBambooVsBagasseRoute =
@@ -38,12 +50,16 @@ const BlogPalmLeafVsBambooVsBagasseRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/areca-leaf-plates': typeof ArecaLeafPlatesRoute
+  '/paper-plates': typeof PaperPlatesRoute
   '/products': typeof ProductsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/palm-leaf-vs-bamboo-vs-bagasse': typeof BlogPalmLeafVsBambooVsBagasseRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/areca-leaf-plates': typeof ArecaLeafPlatesRoute
+  '/paper-plates': typeof PaperPlatesRoute
   '/products': typeof ProductsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/palm-leaf-vs-bamboo-vs-bagasse': typeof BlogPalmLeafVsBambooVsBagasseRoute
@@ -51,6 +67,8 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/areca-leaf-plates': typeof ArecaLeafPlatesRoute
+  '/paper-plates': typeof PaperPlatesRoute
   '/products': typeof ProductsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/palm-leaf-vs-bamboo-vs-bagasse': typeof BlogPalmLeafVsBambooVsBagasseRoute
@@ -59,18 +77,24 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/areca-leaf-plates'
+    | '/paper-plates'
     | '/products'
     | '/sitemap.xml'
     | '/blog/palm-leaf-vs-bamboo-vs-bagasse'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/areca-leaf-plates'
+    | '/paper-plates'
     | '/products'
     | '/sitemap.xml'
     | '/blog/palm-leaf-vs-bamboo-vs-bagasse'
   id:
     | '__root__'
     | '/'
+    | '/areca-leaf-plates'
+    | '/paper-plates'
     | '/products'
     | '/sitemap.xml'
     | '/blog/palm-leaf-vs-bamboo-vs-bagasse'
@@ -78,6 +102,8 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ArecaLeafPlatesRoute: typeof ArecaLeafPlatesRoute
+  PaperPlatesRoute: typeof PaperPlatesRoute
   ProductsRoute: typeof ProductsRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   BlogPalmLeafVsBambooVsBagasseRoute: typeof BlogPalmLeafVsBambooVsBagasseRoute
@@ -85,11 +111,25 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/areca-leaf-plates': {
+      id: '/areca-leaf-plates'
+      path: '/areca-leaf-plates'
+      fullPath: '/areca-leaf-plates'
+      preLoaderRoute: typeof ArecaLeafPlatesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/paper-plates': {
+      id: '/paper-plates'
+      path: '/paper-plates'
+      fullPath: '/paper-plates'
+      preLoaderRoute: typeof PaperPlatesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/products': {
@@ -99,11 +139,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blog/palm-leaf-vs-bamboo-vs-bagasse': {
@@ -118,6 +158,8 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ArecaLeafPlatesRoute: ArecaLeafPlatesRoute,
+  PaperPlatesRoute: PaperPlatesRoute,
   ProductsRoute: ProductsRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   BlogPalmLeafVsBambooVsBagasseRoute: BlogPalmLeafVsBambooVsBagasseRoute,

@@ -155,14 +155,14 @@ const FAQ_ITEMS: [string, string][] = [
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "VY Enterprises Trichy | Areca Plate Manufacturer & Supplier" },
-      { name: "description", content: "VY Enterprises, Trichy — areca plate manufacturer & supplier of eco-friendly disposable products: areca cups, paper plates, paper cups, food containers & dining rolls. Wholesale & custom branding." },
+      { title: "VY Enterprises | Areca Leaf Plates & Paper Plates Supplier" },
+      { name: "description", content: "VY Enterprises in Trichy, Tamil Nadu supplies areca leaf plates, paper plates, areca cups, paper cups, food containers and dining rolls for retail and wholesale orders." },
       { name: "keywords", content: "VY Enterprises, VY Enterprises Trichy, areca plate manufacturer, areca plate supplier, eco-friendly disposable products, paper plates, paper cups, areca cups, food containers, dining rolls, Tiruchirappalli" },
-      { property: "og:title", content: "VY Enterprises Trichy | Areca Plate Manufacturer & Supplier" },
+      { property: "og:title", content: "VY Enterprises | Areca Leaf Plates & Paper Plates Supplier" },
       { property: "og:description", content: "Eco-friendly disposable products from Trichy — areca plates & cups, paper plates & cups, food containers and dining rolls. Wholesale, retail and custom branding." },
       { property: "og:url", content: "https://vyenterprises.in/" },
       { property: "og:image", content: "https://vyenterprises.in/og-vy-enterprises.jpg" },
-      { name: "twitter:title", content: "VY Enterprises Trichy | Areca Plate Manufacturer & Supplier" },
+      { name: "twitter:title", content: "VY Enterprises | Areca Leaf Plates & Paper Plates Supplier" },
       { name: "twitter:description", content: "Eco-friendly disposable products from Trichy — areca plates & cups, paper plates & cups, food containers and dining rolls." },
       { name: "twitter:image", content: "https://vyenterprises.in/og-vy-enterprises.jpg" },
     ],
