@@ -27,6 +27,7 @@ export const Route = createFileRoute("/areca-leaf-plates")({
           "Made from natural areca palm leaves",
           "An eco-friendly alternative to plastic disposable plates",
           "Sturdy enough for full meals",
+          "Plate sizes: 12\", 10\", 8\", 5.5\" and 3\"",
           "Available for retail, bulk and wholesale orders",
         ],
         uses: ["Weddings and functions", "Catering services", "Restaurants and takeaways", "Temples and community events", "Home parties"],
