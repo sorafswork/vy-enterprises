@@ -9,26 +9,16 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as ProductsRouteImport } from './routes/products'
-import { Route as PaperPlatesRouteImport } from './routes/paper-plates'
-import { Route as ArecaLeafPlatesRouteImport } from './routes/areca-leaf-plates'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ArecaLeafPlatesRouteImport } from './routes/areca-leaf-plates'
+import { Route as PaperPlatesRouteImport } from './routes/paper-plates'
+import { Route as ProductsRouteImport } from './routes/products'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as BlogPalmLeafVsBambooVsBagasseRouteImport } from './routes/blog.palm-leaf-vs-bamboo-vs-bagasse'
 
-const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProductsRoute = ProductsRouteImport.update({
-  id: '/products',
-  path: '/products',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PaperPlatesRoute = PaperPlatesRouteImport.update({
-  id: '/paper-plates',
-  path: '/paper-plates',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ArecaLeafPlatesRoute = ArecaLeafPlatesRouteImport.update({
@@ -36,9 +26,19 @@ const ArecaLeafPlatesRoute = ArecaLeafPlatesRouteImport.update({
   path: '/areca-leaf-plates',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const PaperPlatesRoute = PaperPlatesRouteImport.update({
+  id: '/paper-plates',
+  path: '/paper-plates',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsRoute = ProductsRouteImport.update({
+  id: '/products',
+  path: '/products',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlogPalmLeafVsBambooVsBagasseRoute =
@@ -111,25 +111,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/products': {
-      id: '/products'
-      path: '/products'
-      fullPath: '/products'
-      preLoaderRoute: typeof ProductsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/paper-plates': {
-      id: '/paper-plates'
-      path: '/paper-plates'
-      fullPath: '/paper-plates'
-      preLoaderRoute: typeof PaperPlatesRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/areca-leaf-plates': {
@@ -139,11 +125,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ArecaLeafPlatesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/paper-plates': {
+      id: '/paper-plates'
+      path: '/paper-plates'
+      fullPath: '/paper-plates'
+      preLoaderRoute: typeof PaperPlatesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products': {
+      id: '/products'
+      path: '/products'
+      fullPath: '/products'
+      preLoaderRoute: typeof ProductsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blog/palm-leaf-vs-bamboo-vs-bagasse': {
