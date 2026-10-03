@@ -11,6 +11,8 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ArecaLeafPlatesRouteImport } from './routes/areca-leaf-plates'
+import { Route as ArecaLeafPlatesTamilNaduRouteImport } from './routes/areca-leaf-plates-tamil-nadu'
+import { Route as ArecaLeafPlatesTrichyRouteImport } from './routes/areca-leaf-plates-trichy'
 import { Route as PaperPlatesRouteImport } from './routes/paper-plates'
 import { Route as ProductsRouteImport } from './routes/products'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
@@ -24,6 +26,17 @@ const IndexRoute = IndexRouteImport.update({
 const ArecaLeafPlatesRoute = ArecaLeafPlatesRouteImport.update({
   id: '/areca-leaf-plates',
   path: '/areca-leaf-plates',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ArecaLeafPlatesTamilNaduRoute =
+  ArecaLeafPlatesTamilNaduRouteImport.update({
+    id: '/areca-leaf-plates-tamil-nadu',
+    path: '/areca-leaf-plates-tamil-nadu',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ArecaLeafPlatesTrichyRoute = ArecaLeafPlatesTrichyRouteImport.update({
+  id: '/areca-leaf-plates-trichy',
+  path: '/areca-leaf-plates-trichy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PaperPlatesRoute = PaperPlatesRouteImport.update({
@@ -51,6 +64,8 @@ const BlogPalmLeafVsBambooVsBagasseRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/areca-leaf-plates': typeof ArecaLeafPlatesRoute
+  '/areca-leaf-plates-tamil-nadu': typeof ArecaLeafPlatesTamilNaduRoute
+  '/areca-leaf-plates-trichy': typeof ArecaLeafPlatesTrichyRoute
   '/paper-plates': typeof PaperPlatesRoute
   '/products': typeof ProductsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -59,6 +74,8 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/areca-leaf-plates': typeof ArecaLeafPlatesRoute
+  '/areca-leaf-plates-tamil-nadu': typeof ArecaLeafPlatesTamilNaduRoute
+  '/areca-leaf-plates-trichy': typeof ArecaLeafPlatesTrichyRoute
   '/paper-plates': typeof PaperPlatesRoute
   '/products': typeof ProductsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -68,6 +85,8 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/areca-leaf-plates': typeof ArecaLeafPlatesRoute
+  '/areca-leaf-plates-tamil-nadu': typeof ArecaLeafPlatesTamilNaduRoute
+  '/areca-leaf-plates-trichy': typeof ArecaLeafPlatesTrichyRoute
   '/paper-plates': typeof PaperPlatesRoute
   '/products': typeof ProductsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -78,6 +97,8 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/areca-leaf-plates'
+    | '/areca-leaf-plates-tamil-nadu'
+    | '/areca-leaf-plates-trichy'
     | '/paper-plates'
     | '/products'
     | '/sitemap.xml'
@@ -86,6 +107,8 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/areca-leaf-plates'
+    | '/areca-leaf-plates-tamil-nadu'
+    | '/areca-leaf-plates-trichy'
     | '/paper-plates'
     | '/products'
     | '/sitemap.xml'
@@ -94,6 +117,8 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/areca-leaf-plates'
+    | '/areca-leaf-plates-tamil-nadu'
+    | '/areca-leaf-plates-trichy'
     | '/paper-plates'
     | '/products'
     | '/sitemap.xml'
@@ -103,6 +128,8 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ArecaLeafPlatesRoute: typeof ArecaLeafPlatesRoute
+  ArecaLeafPlatesTamilNaduRoute: typeof ArecaLeafPlatesTamilNaduRoute
+  ArecaLeafPlatesTrichyRoute: typeof ArecaLeafPlatesTrichyRoute
   PaperPlatesRoute: typeof PaperPlatesRoute
   ProductsRoute: typeof ProductsRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -123,6 +150,20 @@ declare module '@tanstack/react-router' {
       path: '/areca-leaf-plates'
       fullPath: '/areca-leaf-plates'
       preLoaderRoute: typeof ArecaLeafPlatesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/areca-leaf-plates-tamil-nadu': {
+      id: '/areca-leaf-plates-tamil-nadu'
+      path: '/areca-leaf-plates-tamil-nadu'
+      fullPath: '/areca-leaf-plates-tamil-nadu'
+      preLoaderRoute: typeof ArecaLeafPlatesTamilNaduRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/areca-leaf-plates-trichy': {
+      id: '/areca-leaf-plates-trichy'
+      path: '/areca-leaf-plates-trichy'
+      fullPath: '/areca-leaf-plates-trichy'
+      preLoaderRoute: typeof ArecaLeafPlatesTrichyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/paper-plates': {
@@ -159,6 +200,8 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ArecaLeafPlatesRoute: ArecaLeafPlatesRoute,
+  ArecaLeafPlatesTamilNaduRoute: ArecaLeafPlatesTamilNaduRoute,
+  ArecaLeafPlatesTrichyRoute: ArecaLeafPlatesTrichyRoute,
   PaperPlatesRoute: PaperPlatesRoute,
   ProductsRoute: ProductsRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
