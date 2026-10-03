@@ -23,7 +23,13 @@ export const Route = createFileRoute("/paper-plates")({
         whyHeading: "Available Sizes & Features",
         why: ["Sizes: 6\", 7\", 8\", 9\", 10\" and 12\"", "Heavy-duty 180 GSM paper", "Food-safe paper for serving meals and snacks", "Retail packs and wholesale orders"],
         uses: ["Birthday parties", "Functions and events", "Catering services", "Street food and snack shops", "Retail resale"],
-        other: { to: "/areca-leaf-plates", label: "Areca Leaf Plates" },
+        sections: [
+          { heading: "Paper Plate Supplier in Trichy", body: "VY Enterprises supplies paper plates from Trichy with door-to-door delivery across Trichy and neighbouring regions, and handles wholesale enquiries from businesses in Tamil Nadu. Send sizes and quantities on WhatsApp at +91 85086 57377 to get a quote." },
+        ],
+        links: [
+          { to: "/areca-leaf-plates", label: "Areca Leaf Plates" },
+          { to: "/areca-leaf-plates-trichy", label: "Areca Leaf Plates in Trichy" },
+        ],
       }}
     />
   ),

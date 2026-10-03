@@ -17,6 +17,8 @@ export const Route = createFileRoute("/sitemap.xml")({
           { path: "/", changefreq: "weekly", priority: "1.0" },
           { path: "/products", changefreq: "weekly", priority: "0.9" },
           { path: "/areca-leaf-plates", changefreq: "monthly", priority: "0.9" },
+          { path: "/areca-leaf-plates-trichy", changefreq: "monthly", priority: "0.8" },
+          { path: "/areca-leaf-plates-tamil-nadu", changefreq: "monthly", priority: "0.8" },
           { path: "/paper-plates", changefreq: "monthly", priority: "0.9" },
           { path: "/blog/palm-leaf-vs-bamboo-vs-bagasse", changefreq: "monthly", priority: "0.7" },
         ];
