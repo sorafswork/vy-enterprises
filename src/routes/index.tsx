@@ -155,14 +155,14 @@ const FAQ_ITEMS: [string, string][] = [
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "VY Enterprises | Areca Leaf Plates & Paper Plates Supplier" },
-      { name: "description", content: "VY Enterprises in Trichy, Tamil Nadu supplies areca leaf plates, paper plates, areca cups, paper cups, food containers and dining rolls for retail and wholesale orders." },
+      { title: "VY Enterprises | Areca Leaf Plates & Paper Plates in Tamil Nadu" },
+      { name: "description", content: "VY Enterprises is a Trichy-based supplier of areca leaf plates, paper plates and eco-friendly disposable products for homes, caterers and businesses in Tamil Nadu." },
       { name: "keywords", content: "VY Enterprises, VY Enterprises Trichy, areca plate manufacturer, areca plate supplier, eco-friendly disposable products, paper plates, paper cups, areca cups, food containers, dining rolls, Tiruchirappalli" },
-      { property: "og:title", content: "VY Enterprises | Areca Leaf Plates & Paper Plates Supplier" },
+      { property: "og:title", content: "VY Enterprises | Areca Leaf Plates & Paper Plates in Tamil Nadu" },
       { property: "og:description", content: "Eco-friendly disposable products from Trichy — areca plates & cups, paper plates & cups, food containers and dining rolls. Wholesale, retail and custom branding." },
       { property: "og:url", content: "https://vyenterprises.in/" },
       { property: "og:image", content: "https://vyenterprises.in/og-vy-enterprises.jpg" },
-      { name: "twitter:title", content: "VY Enterprises | Areca Leaf Plates & Paper Plates Supplier" },
+      { name: "twitter:title", content: "VY Enterprises | Areca Leaf Plates & Paper Plates in Tamil Nadu" },
       { name: "twitter:description", content: "Eco-friendly disposable products from Trichy — areca plates & cups, paper plates & cups, food containers and dining rolls." },
       { name: "twitter:image", content: "https://vyenterprises.in/og-vy-enterprises.jpg" },
     ],

@@ -31,7 +31,15 @@ export const Route = createFileRoute("/areca-leaf-plates")({
           "Available for retail, bulk and wholesale orders",
         ],
         uses: ["Weddings and functions", "Catering services", "Restaurants and takeaways", "Temples and community events", "Home parties"],
-        other: { to: "/paper-plates", label: "Paper Plates" },
+        sections: [
+          { heading: "What Are Areca Leaf Plates?", body: "Areca leaf plates are made by pressing the naturally shed sheaths of the areca palm into plates and bowls. No plastic coating is used, which makes them a popular eco-friendly choice for serving food at functions and events." },
+          { heading: "How to Order", body: "Share the products, sizes and quantities you need on WhatsApp or by phone at +91 85086 57377. VY Enterprises confirms availability, pricing and delivery before dispatch." },
+        ],
+        links: [
+          { to: "/areca-leaf-plates-trichy", label: "Areca Leaf Plates in Trichy" },
+          { to: "/areca-leaf-plates-tamil-nadu", label: "Areca Leaf Plates in Tamil Nadu" },
+          { to: "/paper-plates", label: "Paper Plates" },
+        ],
       }}
     />
   ),
