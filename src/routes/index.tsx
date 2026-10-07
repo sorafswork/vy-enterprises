@@ -23,13 +23,14 @@ import slideWaterCup from "@/assets/img/slide-water-cup.webp";
 import slideDinningRoll from "@/assets/img/slide-dinning-roll.webp";
 import slideVyPack1 from "@/assets/img/slide-vy-pack-1.jpg";
 import slideVybPack from "@/assets/img/slide-vyb-pack.jpg";
-import homePaakkuPlates from "@/assets/products-home/paakku-areca-plates.webp.asset.json";
-import homePaakkuCups from "@/assets/products-home/paakku-cups.webp.asset.json";
-import homePaperPlates from "@/assets/products-home/paper-plates.webp.asset.json";
-import homePaperCups from "@/assets/products-home/paper-cups.webp.asset.json";
-import homeYellowTeaCups from "@/assets/products-home/yellow-tea-cups.webp.asset.json";
-import homeFoodContainers from "@/assets/products-home/paakku-food-containers.webp.asset.json";
-import homeDiningRolls from "@/assets/products-home/dining-rolls.webp.asset.json";
+// Portable public paths work on every host (Vercel, Cloudflare, custom domain).
+const homePaakkuPlates = { url: "/images/home-products/paakku-areca-plates.webp" };
+const homePaakkuCups = { url: "/images/home-products/paakku-cups.webp" };
+const homePaperPlates = { url: "/images/home-products/paper-plates.webp" };
+const homePaperCups = { url: "/images/home-products/paper-cups.webp" };
+const homeYellowTeaCups = { url: "/images/home-products/yellow-tea-cups.webp" };
+const homeFoodContainers = { url: "/images/home-products/paakku-food-containers.webp" };
+const homeDiningRolls = { url: "/images/home-products/dining-rolls.webp" };
 import introPoster from "@/assets/vy-intro-poster.jpg";
 
 const HERO_SLIDES = [
