@@ -5,11 +5,11 @@ const IMG = "/images/products/paakku-areca-plates-v10.webp";
 const DESC = "VY Enterprises, based in Trichy, supplies areca leaf plates and disposable products to restaurants, caterers and retailers in Tamil Nadu. Enquire for wholesale and bulk orders.";
 
 export const Route = createFileRoute("/areca-leaf-plates-tamil-nadu")({
-  head: () => categoryHead({ path: "/areca-leaf-plates-tamil-nadu", title: "Areca Leaf Plates in Tamil Nadu | VY Enterprises", description: DESC, image: IMG, name: "Areca Leaf Plates in Tamil Nadu", kind: "local", areaServed: "Tamil Nadu, India" }),
+  head: () => categoryHead({ path: "/areca-leaf-plates-tamil-nadu", title: "Areca Leaf Plate Supplier in Tamil Nadu | VY Enterprises", description: DESC, image: IMG, name: "Areca Leaf Plate Supplier in Tamil Nadu", kind: "local", areaServed: "Tamil Nadu, India" }),
   component: () => (
     <CategoryPage
       c={{
-        h1: "Areca Leaf Plates in Tamil Nadu",
+        h1: "Areca Leaf Plate Supplier in Tamil Nadu",
         intro: "VY Enterprises is an areca leaf plate supplier based in Trichy, working with restaurants, tea shops, caterers and retailers in Tamil Nadu. We handle wholesale and bulk orders for paakku plates, areca cups, paper plates and other disposable products.",
         image: IMG,
         imageAlt: "VY Enterprises areca leaf plates for wholesale orders",

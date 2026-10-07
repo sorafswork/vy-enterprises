@@ -9,7 +9,7 @@ export const Route = createFileRoute("/areca-leaf-plates-trichy")({
   component: () => (
     <CategoryPage
       c={{
-        h1: "Areca Leaf Plates in Trichy",
+        h1: "Areca Leaf Plates Supplier in Trichy",
         intro: "VY Enterprises is an areca leaf plate supplier based at South Ramalinga Nagar, Trichy. We supply paakku plates, compartment trays, bowls and food containers to homes, caterers, restaurants and event organisers in Trichy, with retail and wholesale orders and door-to-door delivery.",
         image: IMG,
         imageAlt: "Areca leaf plates supplied by VY Enterprises in Trichy",

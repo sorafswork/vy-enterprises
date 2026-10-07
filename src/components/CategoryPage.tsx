@@ -78,6 +78,7 @@ export function CategoryPage({ c }: { c: CategoryContent }) {
         <div className="mt-6 flex flex-wrap gap-3">
           <a href="https://wa.me/918508657377" className="inline-flex items-center gap-2 rounded-full gradient-forest px-5 py-2.5 text-sm font-medium text-primary-foreground">Enquire on WhatsApp <ArrowRight className="h-4 w-4" /></a>
           <Link to="/products" className="rounded-full border border-input px-5 py-2.5 text-sm font-medium">View VY Enterprises Products</Link>
+          <a href="/#contact" className="rounded-full border border-input px-5 py-2.5 text-sm font-medium">Contact VY Enterprises</a>
           {c.links.map((l) => (
             <Link key={l.to} to={l.to} className="rounded-full border border-input px-5 py-2.5 text-sm font-medium">{l.label}</Link>
           ))}

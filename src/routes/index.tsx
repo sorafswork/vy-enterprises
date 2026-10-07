@@ -240,12 +240,18 @@ export const Route = createFileRoute("/")({
               address: {
                 "@type": "PostalAddress",
                 streetAddress: "No.27 Raman Nagar, South Ramalinga Nagar",
-                addressLocality: "Trichy",
+                addressLocality: "Tiruchirappalli (Trichy)",
                 postalCode: "620017",
                 addressRegion: "Tamil Nadu",
                 addressCountry: "IN",
               },
-              areaServed: "Tamil Nadu, India",
+              parentOrganization: { "@id": "https://vyenterprises.in/#organization" },
+              areaServed: [
+                { "@type": "City", name: "Tiruchirappalli (Trichy)" },
+                { "@type": "State", name: "Tamil Nadu" },
+              ],
+              hasMap: "https://www.google.com/maps/search/?api=1&query=VY+Enterprises+Raman+Nagar+Trichy+620017",
+              knowsAbout: ["Areca leaf plates", "Paakku plates", "Paper plates", "Disposable plates", "Paper cups"],
             },
             {
               "@type": "FAQPage",
